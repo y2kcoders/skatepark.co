@@ -54,7 +54,7 @@
 
 .input-group__input:focus,
 .input-group__input:valid {
-    outline-color: #C3423F;
+    outline-color: #597377;
 }
 
 .input-group__label {
@@ -87,5 +87,5 @@
 }
 
 .submit:hover {
-    background-color: #C3423F;
+    background-color: #597377;
 }
