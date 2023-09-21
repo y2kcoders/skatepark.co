@@ -1,7 +1,11 @@
 ---
 ---
 
+
 @import "{{ site.theme }}";
+
+
+$cool-color: #3A4A4D;
 
 // STYLING PREFERNCES for SITE
 // mixin used as a template for buttons
@@ -85,6 +89,53 @@
   /* styling for the calculator equals button */
   .calculator-equals {
     @extend .button;
-    background-color: #e70f0f;
+    background-color: #B29784;
   }
 
+  body {
+    background: #171717;
+}
+
+  header {
+    border: #171717;
+  }
+
+
+  h1,h2,h3,h4,h5,h6,p,ul,li {
+    color: #ffffff;
+  }
+
+  a {
+    color: #597377
+  }
+
+
+  .fork, .title, .button{
+    background-color: $cool-color;
+  }
+
+
+  header li {
+    background: $cool-color !important ;
+    border-color: $cool-color !important ;
+    box-shadow: none !important ;
+  }
+
+  .site-header {
+    //position: absolute;
+
+
+  }
+
+  header {
+    margin: 0;
+    padding-top: 0;
+
+}
+
+section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
