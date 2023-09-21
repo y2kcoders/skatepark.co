@@ -5,7 +5,15 @@
 @import "{{ site.theme }}";
 
 
-$cool-color: #3A4A4D;
+$prim-color: #3A4A4D;
+$prim-acc-color: #597377;
+$a-acc-color: #355C7D;
+$s-color: #F67280;
+$finn-bg: #404E4D;
+$finn-ac1: #5BC0EB; 
+$finn-ac2: #FDE74C;
+$finn-ac3: #9BC53D; 
+$finn-ac4: #C3423F; 
 
 // STYLING PREFERNCES for SITE
 // mixin used as a template for buttons
@@ -93,11 +101,11 @@ $cool-color: #3A4A4D;
   }
 
   body {
-    background: #171717;
+    background: $prim-color;
 }
 
   header {
-    border: #171717;
+    border: $prim-color;
   }
 
 
@@ -106,26 +114,21 @@ $cool-color: #3A4A4D;
   }
 
   a {
-    color: #597377
+    color: #597377;
   }
 
 
   .fork, .title, .button{
-    background-color: $cool-color;
+    background-color: $prim-acc-color;
   }
 
 
   header li {
-    background: $cool-color !important ;
-    border-color: $cool-color !important ;
+    background: $prim-acc-color !important ;
+    border-color: $prim-acc-color !important ;
     box-shadow: none !important ;
   }
 
-  .site-header {
-    //position: absolute;
-
-
-  }
 
   header {
     margin: 0;
