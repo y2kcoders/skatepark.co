@@ -5,7 +5,7 @@
 @import "{{ site.theme }}";
 
 
-$prim-color: #3A4A4D;
+$prim-color: #171717;
 $prim-acc-color: #597377;
 $a-acc-color: #355C7D;
 $s-color: #F67280;
@@ -105,7 +105,7 @@ $finn-ac4: #C3423F;
 }
 
   header {
-    border: $prim-color;
+    border: $prim-acc-color;
   }
 
 
