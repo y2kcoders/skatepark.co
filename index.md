@@ -3,7 +3,6 @@ layout: default
 title: Student Blog
 ---
 
-
 ## Build you Home Page here 
 This is about your journey. Start now!!!
 

@@ -36,6 +36,11 @@ $finn-ac4: #C3423F;
     transition: all 0.5s; 
   }
 
+  .messing-around:hover {
+    transition-duration: 2s;
+    transform: rotateY(360deg);
+  }
+
   /* define class for redifined button */
   .button {
     @include button;
@@ -119,9 +124,17 @@ $finn-ac4: #C3423F;
 
 
   .fork, .title, .button{
-    background-color: $prim-acc-color;
+    border-color: $finn-ac4 !important;
+    background: transparent !important;
+    transition-duration: 500ms;
+    opacity: 0.8;
   }
 
+  .fork:hover, .title:hover, .button:hover{
+    transition-duration: 500ms;
+    scale: 1.5;
+    opacity: 1;
+  }
 
   header li {
     background: $prim-acc-color !important ;
