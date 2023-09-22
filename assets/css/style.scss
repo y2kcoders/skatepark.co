@@ -142,3 +142,33 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.log {
+  width: 200px !important;
+  height: 15px;
+  margin-bottom: 12px;
+  line-height: 1em;
+  padding: 6px 6px 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #0D0D0D;
+  background: $prim-acc-color !important ;
+  border-color: $prim-acc-color !important ;
+  box-shadow: none !important ;
+  color: white;
+  padding-right: 15%;
+}
+
+.sign {
+  width: 200px !important;
+  height: 15px;
+  margin-bottom: 12px;
+  line-height: 1em;
+  padding: 6px 6px 6px 6px;
+  border-radius: 4px;
+  border: 1px solid #0D0D0D;
+  background: $prim-acc-color !important ;
+  border-color: $prim-acc-color !important ;
+  box-shadow: none !important ;
+  color: white;
+  padding-right: 14%;
+}
