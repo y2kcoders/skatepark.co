@@ -15,6 +15,47 @@ $finn-ac2: #FDE74C;
 $finn-ac3: #9BC53D; 
 $finn-ac4: #C3423F; 
 
+/* Container for the three divs */
+.card-container {
+  display: flex; /* Use flexbox to arrange the divs horizontally */
+  justify-content: space-between; /* Add space between the divs */
+  padding: 20px; /* Padding around the container */
+}
+
+/* Style for each individual card div */
+/* Your existing card styling */
+.card {
+  flex: 1;
+  background-color: $finn-bg;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.63);
+  border-radius: 8px;
+  transition: 400ms;
+}
+
+/* Style the images within the cards */
+.card img {
+  max-width: 100%; /* Set the maximum width of images to 100% of their parent container */
+  height: auto; /* Maintain aspect ratio */
+  border: none;
+  margin: auto;
+}
+
+.card h2, p {
+  text-align: center;
+}
+/* Add some margin between the cards */
+.card + .card {
+  margin-left: 20px;
+}
+
+.card:hover {
+  transition: 400ms;
+  scale: 1.5;
+}
+
+
+
 // STYLING PREFERNCES for SITE
 // mixin used as a template for buttons
   @mixin button {
@@ -126,12 +167,12 @@ $finn-ac4: #C3423F;
   .fork, .title, .button{
     border-color: $prim-acc-color !important;
     background: transparent !important;
-    transition-duration: 300ms;
+    transition-duration: 500ms;
     opacity: 0.8;
   }
 
   .fork:hover, .title:hover, .button:hover{
-    transition-duration: 5000ms;
+    transition-duration: 1000ms;
     scale: 1.2;
     opacity: 1;
   }
@@ -150,12 +191,13 @@ $finn-ac4: #C3423F;
 }
 
 section {
-  position: absolute;
-  top: 50%;
+  position: fixed;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
+  width: 750px !important;
+  /* You can also add other styling properties like padding or margin if needed */
 }
-
 .log {
   width: 200px !important;
   height: 15px;
