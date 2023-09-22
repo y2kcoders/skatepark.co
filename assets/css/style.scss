@@ -124,15 +124,15 @@ $finn-ac4: #C3423F;
 
 
   .fork, .title, .button{
-    border-color: $finn-ac4 !important;
+    border-color: $prim-acc-color !important;
     background: transparent !important;
-    transition-duration: 500ms;
+    transition-duration: 300ms;
     opacity: 0.8;
   }
 
   .fork:hover, .title:hover, .button:hover{
-    transition-duration: 500ms;
-    scale: 1.5;
+    transition-duration: 5000ms;
+    scale: 1.2;
     opacity: 1;
   }
 
