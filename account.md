@@ -1,7 +1,7 @@
 ---
 layout: default
 title: account
-baseurl: /account
+baseurl: account
 ---
 
 # Log in to your account to see your reviews
