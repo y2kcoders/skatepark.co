@@ -28,7 +28,7 @@ $finn-ac4: #C3423F;
   flex: 1;
   background-color: $finn-bg;
   padding: 20px;
-  box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.63);
+ // box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.63);
   border-radius: 8px;
   transition: 400ms;
 }
@@ -51,7 +51,7 @@ $finn-ac4: #C3423F;
 
 .card:hover {
   transition: 400ms;
-  scale: 1.5;
+  scale: 1.1;
 }
 
 
@@ -157,6 +157,8 @@ $finn-ac4: #C3423F;
 
   h1,h2,h3,h4,h5,h6,p,ul,li {
     color: #ffffff;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
   }
 
   a {
@@ -169,10 +171,11 @@ $finn-ac4: #C3423F;
     background: transparent !important;
     transition-duration: 500ms;
     opacity: 0.8;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
 
   .fork:hover, .title:hover, .button:hover{
-    transition-duration: 1000ms;
+    transition-duration: 100ms;
     scale: 1.2;
     opacity: 1;
   }
@@ -192,7 +195,7 @@ $finn-ac4: #C3423F;
 
 section {
   position: fixed;
-  top: 0;
+  top: 1.25%;
   left: 50%;
   transform: translateX(-50%);
   width: 750px !important;
@@ -226,4 +229,45 @@ section {
   box-shadow: none !important ;
   color: white;
   padding-right: 14%;
+}
+
+
+.homebutton{
+  display: block;
+  width: 200px;
+  height: 150px;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: #333;
+  border: 2px solid #333;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all .35s;
+}
+
+.homebutton span{
+  position: relative;
+  z-index: 2;
+}
+
+.homebutton:after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #ff003b;
+  transition: all .35s;
+}
+
+.homebutton:hover{
+  color: #fff;
+}
+
+.homebutton:hover:after{
+  width: 100%;
 }
