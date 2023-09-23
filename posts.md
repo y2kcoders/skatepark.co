@@ -1,14 +1,9 @@
 ---
 layout: default
-title: Daily Posts
 permalink: posts
+title: Posts
 ---
 
-<head>
-    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/Daily.css">
-    <meta charset="UTF-8">
-</head>
+## Posts
 
-<div class="review card">
-
-</div>
+<a class="log" href="{{site.baseurl}}/review">Make a Review</a>

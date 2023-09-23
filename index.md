@@ -7,7 +7,7 @@ title: Student Blog
 
 <div class="card-container">
     <div class="card" id="review">
-        <h2>Skatepark Rater</h2>
+        <h2>Skatepark Posts</h2>
         <p>lorem ipsum</p>
     </div>
     <div class="card" id="acc">
@@ -26,7 +26,7 @@ title: Student Blog
     const Div3 = document.getElementById("brand");
     
     Div1.addEventListener("click", function() {
-        const url = "{{site.baseurl}}/review"; 
+        const url = "{{site.baseurl}}/posts"; 
         window.location.href = url;
     });
     Div2.addEventListener("click", function() {
