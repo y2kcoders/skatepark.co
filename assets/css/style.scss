@@ -6,7 +6,7 @@
 
 
 $prim-color: #171717;
-$prim-acc-color: #597377;
+$prim-acc-color: #15580f;
 $a-acc-color: #355C7D;
 $s-color: #F67280;
 $finn-bg: #404E4D;
@@ -28,7 +28,6 @@ $finn-ac4: #C3423F;
   flex: 1;
   background-color: $finn-bg;
   padding: 20px;
- // box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.63);
   border-radius: 8px;
   transition: 400ms;
   cursor: pointer;
@@ -52,6 +51,9 @@ $finn-ac4: #C3423F;
 
 .card:hover {
   transition: 400ms;
+  transition-timing-function: ease;
+  color: black;
+  background-color: $finn-ac4;
   scale: 1.1;
 }
 
@@ -80,7 +82,7 @@ $finn-ac4: #C3423F;
 
   .messing-around:hover {
     transition-duration: 2s;
-    transform: rotateY(360deg);
+    color: $finn-ac4;
   }
 
   /* define class for redifined button */
@@ -168,17 +170,23 @@ $finn-ac4: #C3423F;
 
 
   .fork, .title, .button{
-    border-color: $finn-ac4 !important;
+    border-color: $prim-acc-color !important;
     background: transparent !important;
-    transition-duration: 500ms;
+    transition-duration: 1000ms;
     opacity: 0.8;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
 
   .fork:hover, .title:hover, .button:hover{
-    transition-duration: 100ms;
+    transition-duration: 1000ms;
     scale: 1.2;
     opacity: 1;
+    border: none !important;
+    background-color: white !important;
+    transition-timing-function: ease-out;
+    a {
+      color: black;
+    }
   }
 
   header li {
