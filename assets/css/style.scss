@@ -6,7 +6,7 @@
 
 
 $prim-color: #171717;
-$prim-acc-color: #15580f;
+$prim-acc-color: #597377;
 $a-acc-color: #355C7D;
 $s-color: #F67280;
 $finn-bg: #404E4D;
@@ -22,11 +22,16 @@ $finn-ac4: #C3423F;
   padding: 20px; /* Padding around the container */
 }
 
+
+header{
+  background-color: $prim-color;
+}
+
 /* Style for each individual card div */
 /* Your existing card styling */
 .card {
   flex: 1;
-  background-color: $finn-bg;
+  background-color: $prim-acc-color;
   padding: 20px;
   border-radius: 8px;
   transition: 400ms;
@@ -53,7 +58,7 @@ $finn-ac4: #C3423F;
   transition: 400ms;
   transition-timing-function: ease;
   color: black;
-  background-color: $finn-ac4;
+  background-color: $prim-acc-color;
   scale: 1.1;
 }
 
@@ -65,7 +70,7 @@ $finn-ac4: #C3423F;
     width: auto;
     height: auto;
     border-radius: 10px;
-    background-color: #21807c;
+    background-color: #6cfff8;
     border: 3px solid black;
     font-size: 1.5em;
 
@@ -81,8 +86,8 @@ $finn-ac4: #C3423F;
   }
 
   .messing-around:hover {
-    transition-duration: 2s;
-    color: $finn-ac4;
+    transition-duration: .5s;
+    color: /*$finn-ac4*/$prim-acc-color ;
   }
 
   /* define class for redifined button */
@@ -92,7 +97,7 @@ $finn-ac4: #C3423F;
 
    /* darkens the background color on hover to create a selecting effect */
   .button:hover {
-    background-color: #373737;
+    background-color: $prim-acc-color;
   }
 
   /* "row style" is flexible size and aligns pictures in center */
@@ -172,17 +177,17 @@ $finn-ac4: #C3423F;
   .fork, .title, .button{
     border-color: $prim-acc-color !important;
     background: transparent !important;
-    transition-duration: 1000ms;
+    transition-duration: 100ms;
     opacity: 0.8;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
 
   .fork:hover, .title:hover, .button:hover{
-    transition-duration: 1000ms;
+    transition-duration: 300ms;
     scale: 1.2;
     opacity: 1;
     border: none !important;
-    background-color: white !important;
+    background-color: $prim-acc-color !important;
     transition-timing-function: ease-out;
     a {
       color: black;
@@ -269,7 +274,7 @@ section {
   left: 0;
   width: 0;
   height: 100%;
-  background: #ff003b;
+  background: /*#ff003b*/ $prim-acc-color;
   transition: all .35s;
 }
 
@@ -280,3 +285,6 @@ section {
 .homebutton:hover:after{
   width: 100%;
 }
+
+
+
