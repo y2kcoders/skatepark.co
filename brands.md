@@ -1,7 +1,7 @@
 ---
 layout: default
-permalink: brand
-title: Best Skateboard Brands
+permalink: brand-review
+title: brand review
 ---
 
-## Popular Brands
+## Brand Review

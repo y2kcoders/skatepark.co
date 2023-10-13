@@ -70,14 +70,7 @@ header{
     width: auto;
     height: auto;
     border-radius: 10px;
-    background-color: #6cfff8;
-    border: 3px solid black;
-    font-size: 1.5em;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    background-color: $prim-acc-color;
     grid-column: span 1;
     grid-row: span 1;
 

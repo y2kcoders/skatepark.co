@@ -34,7 +34,7 @@ title: Student Blog
         window.location.href = url2;
     });
     Div3.addEventListener("click", function() {
-        const url3 = "{{site.baseurl}}/brand"; 
+        const url3 = "{{site.baseurl}}/brand-review"; 
         window.location.href = url3;
     });
 </script>
