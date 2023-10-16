@@ -1,22 +1,22 @@
 ---
 layout: default
-title: Student Blog
+title: SKATEPARK.CO
 ---
 
-# Home Page
+# ‎ 
 
 <div class="card-container">
     <div class="card" id="review">
         <h2>Skatepark Posts</h2>
-        <p>lorem ipsum</p>
+        <p>Want to post about a skate park?</p>
     </div>
     <div class="card" id="acc">
         <h2>Account</h2>
-        <p>lorem ipsum</p>
+        <p>sign in, sign up, or view your account.</p>
     </div>
     <div class="card" id="brand">
         <h2>Brand Rating</h2>
-        <p>lorem ipsum</p>
+        <p>Rate Brands. </p>
     </div>
 </div>
 

@@ -4,4 +4,4 @@ permalink: recent
 title: Best Skateboard Brands
 ---
 
-# recent
+# Recent Posts
