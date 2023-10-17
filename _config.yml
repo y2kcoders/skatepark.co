@@ -1,7 +1,7 @@
 title: skatepark.co
 description: "August 2023 to June 2024"
 owner_name: y2kcoders
-github_username: nighthawkcoders
+github_username: y2kcoders
 baseurl: "/skatepark.co"
 # remote_theme: pages-themes/midnight@v0.2.0
 remote_theme: pages-themes/dinky@v0.2.0

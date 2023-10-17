@@ -4,12 +4,14 @@ permalink: /chat-board
 title: Chat Board
 ---
 
+
+# Chat Board
 <html>
 <head>
   <style>
 
     .chatbox {
-      width: 500px;
+      width: 710px;
       background-color: #597377;
       border-radius: 20px;
       padding: 20px;
@@ -18,7 +20,7 @@ title: Chat Board
       display: flex;
       flex-direction: column-reverse;
       position: absolute;
-      top: 50px;
+      top: 100px;
     }
     
     .message {
@@ -73,7 +75,7 @@ title: Chat Board
       padding: 20px;
       box-shadow: 8px 8px 16px #171717, -8px -8px 16px #171717;
       position: absolute;
-      top: 800px;
+      top: 793px;
       left: 110%;
     }
 
@@ -114,8 +116,6 @@ title: Chat Board
   
 
   <script>
-    // JavaScript code goes here
-
     function sendMessage() {
       // Retrieve the input message
       var inputMessage = document.getElementById('input-message').value;
@@ -150,6 +150,12 @@ title: Chat Board
       // Append the message element to the messages container
       var messagesContainer = document.getElementById('messages');
       messagesContainer.appendChild(messageElement);
+
+      // Check the number of messages and delete the oldest if more than 21
+      var messages = messagesContainer.getElementsByClassName('message');
+      if (messages.length > 19) {
+        messagesContainer.removeChild(messages[0]);
+      }
 
       // Scroll to the bottom to show the latest message
       messagesContainer.scrollTop = messagesContainer.scrollHeight;
