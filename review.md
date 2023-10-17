@@ -6,6 +6,7 @@ permalink: review
 <head>
     <link rel="stylesheet" href="{{site.baseurl}}/assets/css/review.css">
     <meta charset="UTF-8">
+    <script src="{{site.baseurl}}/assets/js/review.js"></script>
 </head>
 
 ## Write your review here
@@ -23,26 +24,16 @@ permalink: review
     <input type="text" id="address" class="input-group__input" required />
     <label for="address" class="input-group__label">Address of Skate Park</label>
 </div>
-<div class="rate">
-    <input type="radio" id="star5" name="rate" value="5" />
-    <label for="star5" title="text">5 stars</label>
-    <input type="radio" id="star4" name="rate" value="4" />
-    <label for="star4" title="text">4 stars</label>
-    <input type="radio" id="star3" name="rate" value="3" />
-    <label for="star3" title="text">3 stars</label>
-    <input type="radio" id="star2" name="rate" value="2" />
-    <label for="star2" title="text">2 stars</label>
-    <input type="radio" id="star1" name="rate" value="1" />
-    <label for="star1" title="text">1 star</label>
-</div>
 <br>
+<div class="input-group">
+    <input type="number" id="rating" class="input-group__input" max="10" min="0" required />
+    <span class="rating-label">/ 10</span>
+</div>
 <br>
 <div class="input-group">
     <textarea id="Description" class="input-group__input" required style="height: 250px;"></textarea>
     <label for="Description" class="input-group__label">Description</label>
 </div>
 <div class="input-group">
-    <button class="submit" id="submit">Submit</button>
+    <button onclick="post()" class="submit" id="submit">Submit</button>
 </div>
-
-
