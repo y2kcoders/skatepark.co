@@ -10,6 +10,7 @@ async function post() {
     var description = document.getElementById('Description');
 
     // check if form is filled out correctly
+    // make a box red if it's not filled out
     if (name.value === "") {
         name.style.borderColor = "red";
         return;
@@ -30,8 +31,10 @@ async function post() {
         description.style.borderColor = "red";
         return;
     }
-    // make a box red if it's not filled out
 
     // send info
+    
+
+
     // send person to the posts page
 }

@@ -101,3 +101,8 @@ input[type=number] {
 .submit:hover {
     background-color: #597377;
 }
+
+.red-background {
+    background-color: red;
+    transition: background-color 500ms;
+}
