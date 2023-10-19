@@ -22,6 +22,9 @@ $finn-ac4: #C3423F;
   padding: 20px; /* Padding around the container */
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 header{
   background-color: $prim-color;
