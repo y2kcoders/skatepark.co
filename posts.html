@@ -1,10 +1,10 @@
 ---
 layout: default
-permalink: recent
-title: Best Skateboard Brands
+permalink: posts
+title: Posts
 ---
 
-
+<!DOCTYPE html>
 <html>
 <head>
     <title>Skatepark Cards</title>
@@ -29,10 +29,14 @@ title: Best Skateboard Brands
         document.addEventListener("DOMContentLoaded", function () {
             const skateparkCardsContainer = document.getElementById("skatepark-cards");
 
-            fetch("https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/")
+            // Replace the URL with the actual JSON file URL
+            const apiUrl = 'https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/';
+
+            fetch(apiUrl)
                 .then(response => response.json())
                 .then(data => {
                     data.forEach(skatepark => {
+                        // Create a new div card for each skatepark
                         const card = document.createElement("div");
                         card.className = "card";
                         card.innerHTML = `
@@ -52,4 +56,3 @@ title: Best Skateboard Brands
     </script>
 </body>
 </html>
-
