@@ -30,7 +30,7 @@ title: Best Skateboard Brands
     // Define the request options
     const requestOptions = {
         method: 'GET', // Change the method to GET
-        mode: 'cors',
+        mode: 'no-cors',
         cache: 'no-cache',
         credentials: 'include',
         headers: {
