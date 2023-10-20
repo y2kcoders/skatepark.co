@@ -26,7 +26,6 @@ title: Best Skateboard Brands
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-    const skateparkCardsContainer = document.getElementById("skatepark-cards");
     // Define the request options
     const requestOptions = {
         method: 'GET', // Change the method to GET
@@ -42,22 +41,8 @@ title: Best Skateboard Brands
     fetch("https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/", requestOptions)
         .then(response => response.json())
         .then(data => {
-            data.forEach(skatepark => {
-                const card = document.createElement("div");
-                card.className = "card";
-                card.innerHTML = `
-                    <h3>Skatepark Name: ${skatepark.skateparkName}</h3>
-                    <p>Author: ${skatepark.author}</p>
-                    <p>Title: ${skatepark.title}</p>
-                    <p>Address: ${skatepark.address}</p>
-                    <p>Star Rating: ${skatepark.starRating}</p>
-                    <p>Description: ${skatepark.description}</p>
-                    <p>Total Likes: ${skatepark.totalLikes}</p>
-                `;
-                skateparkCardsContainer.appendChild(card);
-            });
+            console.log(data); // Log the fetched data to the console
         })
-        .catch(error => console.error("Error fetching data:", error));
 });
     </script>
 </body>
