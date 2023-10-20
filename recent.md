@@ -25,30 +25,40 @@ title: Best Skateboard Brands
         <!-- Cards will be dynamically added here -->
     </div>
     <script>
-        // JavaScript code
         document.addEventListener("DOMContentLoaded", function () {
-            const skateparkCardsContainer = document.getElementById("skatepark-cards");
-
-            fetch("https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/")
-                .then(response => response.json())
-                .then(data => {
-                    data.forEach(skatepark => {
-                        const card = document.createElement("div");
-                        card.className = "card";
-                        card.innerHTML = `
-                            <h3>Skatepark Name: ${skatepark.skateparkName}</h3>
-                            <p>Author: ${skatepark.author}</p>
-                            <p>Title: ${skatepark.title}</p>
-                            <p>Address: ${skatepark.address}</p>
-                            <p>Star Rating: ${skatepark.starRating}</p>
-                            <p>Description: ${skatepark.description}</p>
-                            <p>Total Likes: ${skatepark.totalLikes}</p>
-                        `;
-                        skateparkCardsContainer.appendChild(card);
-                    });
-                })
-                .catch(error => console.error("Error fetching data:", error));
-        });
+    const skateparkCardsContainer = document.getElementById("skatepark-cards");
+    // Define the request options
+    const requestOptions = {
+        method: 'GET', // Change the method to GET
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'include',
+        headers: {
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Allow-Origin": "*",
+        },
+    };
+    // Use the fetch function with the modified request options
+    fetch("https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/", requestOptions)
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(skatepark => {
+                const card = document.createElement("div");
+                card.className = "card";
+                card.innerHTML = `
+                    <h3>Skatepark Name: ${skatepark.skateparkName}</h3>
+                    <p>Author: ${skatepark.author}</p>
+                    <p>Title: ${skatepark.title}</p>
+                    <p>Address: ${skatepark.address}</p>
+                    <p>Star Rating: ${skatepark.starRating}</p>
+                    <p>Description: ${skatepark.description}</p>
+                    <p>Total Likes: ${skatepark.totalLikes}</p>
+                `;
+                skateparkCardsContainer.appendChild(card);
+            });
+        })
+        .catch(error => console.error("Error fetching data:", error));
+});
     </script>
 </body>
 </html>
