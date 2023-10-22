@@ -25,25 +25,48 @@ title: Best Skateboard Brands
         <!-- Cards will be dynamically added here -->
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+//         document.addEventListener("DOMContentLoaded", function () {
+//     // Define the request options
+//     const requestOptions = {
+//         method: 'GET', // Change the method to GET
+//         mode: 'no-cors',
+//         cache: 'no-cache',
+//         credentials: 'include',
+//         headers: {
+//             "Access-Control-Allow-Credentials": "true",
+//             "Access-Control-Allow-Origin": "*",
+//         },
+//     };
+//     // Use the fetch function with the modified request options
+//     fetch("http://localhost:8085/api/skatepark/", requestOptions)
+//         .then(response => response.json())
+//         .then(data => {
+//             console.log(data); // Log the fetched data to the console
+//         })
+// });
+document.addEventListener("DOMContentLoaded", function () {
     // Define the request options
     const requestOptions = {
-        method: 'GET', // Change the method to GET
-        mode: 'no-cors',
+        method: 'GET',
         cache: 'no-cache',
         credentials: 'include',
-        headers: {
-            "Access-Control-Allow-Credentials": "true",
-            "Access-Control-Allow-Origin": "*",
-        },
     };
     // Use the fetch function with the modified request options
-    fetch("https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/", requestOptions)
-        .then(response => response.json())
+    fetch("http://localhost:8085/api/skatepark/", requestOptions)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
             console.log(data); // Log the fetched data to the console
         })
+        .catch(error => {
+            console.error('Fetch error:', error);
+        });
 });
+
     </script>
 </body>
 </html>
