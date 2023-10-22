@@ -6,24 +6,76 @@ title: Posts
 
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Skatepark Cards</title>
+<body>
+    <div id="skatepark-cards">
+
+    </div>
     <style>
         /* CSS code */
-        .card {
+        .car {
             border: 1px solid #ccc;
             border-radius: 5px;
             margin: 10px;
             padding: 10px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            background-color: #f9f9f9;
+            background-color: #171717;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 350px;
+            margin-bottom: 20%;
         }
+
+        .car h3 {
+            margin-top: 0;
+        }
+
+        .car p {
+            margin: 0;
+            font-weight: bolder;
+        }
+
+        .car .details {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .car .details .info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .car .details .actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .car .details .actions button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .car .details .actions button:hover {
+            background-color: #3e8e41;
+        }
+        .bold-text {
+            font-weight: bold;
+          }
     </style>
-</head>
-<body>
-    <div id="skatepark-cards">
-        <!-- Cards will be dynamically added here -->
-    </div>
+
     <script>
         // JavaScript code
         document.addEventListener("DOMContentLoaded", function () {
@@ -36,19 +88,22 @@ title: Posts
                 .then(response => response.json())
                 .then(data => {
                     data.forEach(skatepark => {
-                        // Create a new div card for each skatepark
-                        const card = document.createElement("div");
-                        card.className = "card";
-                        card.innerHTML = `
-                            <h3>Skatepark Name: ${skatepark.skateparkName}</h3>
-                            <p>Author: ${skatepark.author}</p>
-                            <p>Title: ${skatepark.title}</p>
-                            <p>Address: ${skatepark.address}</p>
-                            <p>Star Rating: ${skatepark.starRating}</p>
-                            <p>Description: ${skatepark.description}</p>
-                            <p>Total Likes: ${skatepark.totalLikes}</p>
+                        const car = document.createElement("div");
+                        car.className = "car";
+                        car.innerHTML = `
+                        <div class="details">
+                            <div class="info">
+                              <h3>${skatepark.skateparkName}</h3>
+                              <h5 class="bold-text"><strong>Author:</strong> ${skatepark.author}</h5>
+                              <h5 class="bold-text"><strong>Title:</strong> ${skatepark.title}</h5>
+                              <h5 class="bold-text"><strong>Address:</strong> ${skatepark.address}</h5>
+                              <h5 class="bold-text"><strong>Star Rating:</strong> ${skatepark.starRating}</h5>
+                              <h5 class="bold-text"><strong>Description:</strong> ${skatepark.description}</h5>
+                              <h5 class="bold-text"><strong>Total Likes:</strong> ${skatepark.totalLikes}</h5>
+                            </div>
+                          </div>
                         `;
-                        skateparkCardsContainer.appendChild(card);
+                        skateparkCardsContainer.appendChild(car);
                     });
                 })
                 .catch(error => console.error("Error fetching data:", error));

@@ -35,7 +35,6 @@ header{
 .card {
   flex: 1;
   background-color: $prim-acc-color;
-  padding: 20px;
   border-radius: 8px;
   transition: 400ms;
   cursor: pointer;
@@ -49,7 +48,7 @@ header{
   margin: auto;
 }
 
-.card h2, p {
+.card h2{
   text-align: center;
 }
 /* Add some margin between the cards */
@@ -346,3 +345,6 @@ header{
   background-color: #0d0d0d00;
 }
 
+.post {
+  text
+}
