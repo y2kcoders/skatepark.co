@@ -5,9 +5,10 @@ title: Chat Board
 ---
 
 
-# Chat Board
+
 <html>
 <head>
+  <h1 class="messing-around">chat-board</h1>
   <style>
 
     .chatbox {
@@ -21,6 +22,12 @@ title: Chat Board
       flex-direction: column-reverse;
       position: absolute;
       top: 100px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
     
     .message {
@@ -53,7 +60,8 @@ title: Chat Board
       border: none;
       border-radius: 10px;
       background-color: #f7f7f7;
-      box-shadow: inset 6px 6px 12px #d9d9d9, inset -6px -6px 12px #597377;
+      box-shadow: inset 6px 6px 12px #d9d9d9, inset -6px -6px 12px #c7ced0;
+      
     }
     
     button {
@@ -77,10 +85,16 @@ title: Chat Board
       position: absolute;
       top: 793px;
       left: 110%;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
     .username-input {
-      width: 95%;
+      width: 94%;
       padding: 8px;
       border: none;
       border-radius: 10px;
