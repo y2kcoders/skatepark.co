@@ -9,7 +9,7 @@ title: Posts
 <head>
     <title>Skatepark Cards</title>
     <style>
-        /* CSS code */
+        /* CSS code for the card */
         .card {
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -18,14 +18,14 @@ title: Posts
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             background-color: #f9f9f9;
         }
-    </style>
-</head>
-<body>
-    <div id="skatepark-cards">
-        <!-- Cards will be dynamically added here -->
-    </div>
-    <style>
-        /* CSS code */
+
+        /* CSS code for the card container with scroll */
+        .scroll-container {
+            max-height: 100vh; /* Set a max height to enable scrolling */
+            overflow-y: auto; /* Enable vertical scrolling when content overflows */
+        }
+
+        /* CSS code for the car (skatepark card) */
         .car {
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -92,6 +92,14 @@ title: Posts
             background-color: #3e8e41;
         }
     </style>
+</head>
+<body>
+    <div id="skatepark-cards" class="scroll-container">
+        <!-- Cards will be dynamically added here -->
+    </div>
+    <style>
+        /* Rest of your CSS code (you can add more styles as needed) */
+    </style>
 
     <script>
         // JavaScript code
@@ -118,7 +126,6 @@ title: Posts
                                     <p><b>Star Rating:</b> ${skatepark.starRating}</p>
                                     <p><b>Description:</b> ${skatepark.description}</p>
                                     <p><b>Total Likes:</b> ${skatepark.totalLikes}</p>
-
                                 </div>
                                 <div class="actions">
                                     <button>Like</button>
