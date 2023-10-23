@@ -41,7 +41,8 @@ permalink: /signup
         var passwords = document.getElementById("password").value;
         var confirm_password = document.getElementById("confirm_password").value;
         var username = document.getElementById("username").value;
-        var birthday = document.getElementById('birth').value
+        var birthday = document.getElementById('birth').value;
+        var email = document.getElementById('email').value;
         const login_url = "https://y2kcoders.stu.nighthawkcodingsociety.com/mvc/person/username";
         const url = "https://y2kcoders.stu.nighthawkcodingsociety.com/mvc/person";
         const create_fetch = url + '/post'; 
