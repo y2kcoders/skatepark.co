@@ -363,7 +363,27 @@ body {
 }
 
 
+.top-plane {
+  width: 200%;
+  height: 130%;
+  position: absolute;
+  bottom: 0; /* Adjust the positioning to overlap with the header */
+  left: -50%;
+  background-image: -webkit-linear-gradient($nodeStreak 2px, transparent 2px), -webkit-linear-gradient(left, $nodeStreak 2px, transparent 2px);
+  background-size: 100px 100px, 100px 100px;
+  background-position: -1px -1px, -1px -1px;
+  transform: rotateX(85deg);
+  animation: planeMoveTop $nanoVelocity infinite linear;
+  z-index: -1; /* Ensure the lines are behind the header */
+}
 
+.bottom-plane {
+  @extend .top-plane;
+  transform: rotateX(-85deg);
+  top: 0; /* Adjust the positioning to overlap with the header */
+  animation: planeMoveBot $nanoVelocity infinite linear;
+  z-index: -1;
+}
 
 header {
   background-color: $prim-color; /* Set the background color to your desired solid color */
