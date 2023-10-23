@@ -6,9 +6,23 @@ title: Posts
 
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Skatepark Cards</title>
+    <style>
+        /* CSS code */
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
 <body>
     <div id="skatepark-cards">
-
+        <!-- Cards will be dynamically added here -->
     </div>
     <style>
         /* CSS code */
@@ -23,7 +37,14 @@ title: Posts
             flex-direction: column;
             justify-content: space-between;
             height: 350px;
-            margin-bottom: 20%;
+            /* From https://css.glass */
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-top: 1%;
         }
 
         .car h3 {
@@ -32,7 +53,6 @@ title: Posts
 
         .car p {
             margin: 0;
-            font-weight: bolder;
         }
 
         .car .details {
@@ -71,9 +91,6 @@ title: Posts
         .car .details .actions button:hover {
             background-color: #3e8e41;
         }
-        .bold-text {
-            font-weight: bold;
-          }
     </style>
 
     <script>
@@ -88,20 +105,26 @@ title: Posts
                 .then(response => response.json())
                 .then(data => {
                     data.forEach(skatepark => {
+                        // Create a new div card for each skatepark
                         const car = document.createElement("div");
                         car.className = "car";
                         car.innerHTML = `
-                        <div class="details">
-                            <div class="info">
-                              <h3>${skatepark.skateparkName}</h3>
-                              <h5 class="bold-text"><strong>Author:</strong> ${skatepark.author}</h5>
-                              <h5 class="bold-text"><strong>Title:</strong> ${skatepark.title}</h5>
-                              <h5 class="bold-text"><strong>Address:</strong> ${skatepark.address}</h5>
-                              <h5 class="bold-text"><strong>Star Rating:</strong> ${skatepark.starRating}</h5>
-                              <h5 class="bold-text"><strong>Description:</strong> ${skatepark.description}</h5>
-                              <h5 class="bold-text"><strong>Total Likes:</strong> ${skatepark.totalLikes}</h5>
+                            <div class="details">
+                                <div class="info">
+                                    <h3>${skatepark.skateparkName}</h3>
+                                    <p><b>Author:</b> ${skatepark.author}</p>
+                                    <p><b>Title:</b> ${skatepark.title}</p>
+                                    <p><b>Address:</b> ${skatepark.address}</p>
+                                    <p><b>Star Rating:</b> ${skatepark.starRating}</p>
+                                    <p><b>Description:</b> ${skatepark.description}</p>
+                                    <p><b>Total Likes:</b> ${skatepark.totalLikes}</p>
+
+                                </div>
+                                <div class="actions">
+                                    <button>Like</button>
+                                    <button>Share</button>
+                                </div>
                             </div>
-                          </div>
                         `;
                         skateparkCardsContainer.appendChild(car);
                     });

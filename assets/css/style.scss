@@ -35,6 +35,7 @@ header{
 .card {
   flex: 1;
   background-color: $prim-acc-color;
+  padding: 20px;
   border-radius: 8px;
   transition: 400ms;
   cursor: pointer;
@@ -48,7 +49,7 @@ header{
   margin: auto;
 }
 
-.card h2{
+.card h2, .card p {
   text-align: center;
 }
 /* Add some margin between the cards */
@@ -194,12 +195,14 @@ header{
     background: $prim-acc-color !important ;
     border-color: $prim-acc-color !important ;
     box-shadow: none !important ;
+    
   }
 
 
   header {
     margin: 0;
     padding-top: 0;
+    color: #ffffff00 !important;
 
 }
 
@@ -343,8 +346,13 @@ html {
 
 header{
   background-color: #0d0d0d00;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-top: 1%;
+  margin-left: 2%;
 }
 
-.post {
-  text
-}
