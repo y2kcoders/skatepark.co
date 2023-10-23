@@ -5,18 +5,20 @@
 
 <body>
 
-  <div class="wrapper">
-    <header>
-      {%- include header.html -%}
-    </header>
+  <div class="wrap">
+    <div class="top-plane"></div>
+    <div class="wrapper">
+      <header>
+        {%- include header.html -%}
+      </header>
 
+      <section>
+        {{ content }}
+      </section>
 
-    <section>
-      {{ content }}
-    </section>
-
+    </div>
+    <div class="bottom-plane"></div>
   </div>
-  
 </body>
 
 
