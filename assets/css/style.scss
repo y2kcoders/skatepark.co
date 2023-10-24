@@ -178,7 +178,7 @@ header{
   }
 
   a {
-    color: #719499;
+    color: #000000;
   }
 
 
@@ -189,6 +189,9 @@ header{
     opacity: 0.8;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
+    a{
+      color: black;
+    }
   }
 
   .fork:hover, .title:hover, .button:hover{
