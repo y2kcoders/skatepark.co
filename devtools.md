@@ -16,7 +16,7 @@ permalink: devtools
 
 <script>
     async function main() {
-        const backendURL = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/"; // Update the URL to match your backend API
+        const backendURL = 'https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/'; // Update the URL to match your backend API
 
         try {
             const response = await fetch(backendURL);
@@ -56,10 +56,10 @@ permalink: devtools
     }
 
     async function deletePost(postName) {
-    const backendURL = `https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/delete/${postName}`; // Update the URL to match your backend API
+    const DeleteURL = `https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/delete/${postName}`; // Update the URL to match your backend API
 
     try {
-        const response = await fetch(backendURL, {
+        const response = await fetch(DeleteURL, {
             method: "DELETE",
             cache: 'no-cache',
             credentials: 'include'
