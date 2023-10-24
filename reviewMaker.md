@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Review Page
-permalink: review
+permalink: reviewMaker
 ---
 <head>
     <link rel="stylesheet" href="{{site.baseurl}}/assets/css/review.css">
