@@ -125,6 +125,7 @@ permalink: reviewMaker
                 })
                 .then(data => {
                     console.log("Response data:", data);
+                    window.location.href = "https://y2kcoders.github.io/skatepark.co/posts";
                     // You can redirect the user or display a success message
                 })
                 .catch(error => {
