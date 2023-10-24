@@ -44,6 +44,12 @@ header{
   transition: 400ms;
   cursor: pointer;
   z-index: 2; /* Set a higher z-index value for the header */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* Style the images within the cards */
@@ -166,7 +172,7 @@ header{
 
 
   h1,h2,h3,h4,h5,h6,p,ul,li {
-    color: #ffffff;
+    color: #000000;
     font-family: Arial, Helvetica, sans-serif;
 
   }
@@ -201,6 +207,12 @@ header{
     background: $prim-acc-color !important ;
     border-color: $prim-acc-color !important ;
     box-shadow: none !important ;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     
   }
 
@@ -208,8 +220,13 @@ header{
   header {
     margin: 0;
     padding-top: 0;
-    color: #ffffff00 !important;
-
+    color: #ffffff00;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 section {
@@ -228,11 +245,16 @@ section {
   padding: 6px 6px 6px 10px;
   border-radius: 4px;
   border: 1px solid #0D0D0D;
-  background: $prim-acc-color !important ;
-  border-color: $prim-acc-color !important ;
   box-shadow: none !important ;
   color: white;
   padding-right: 15%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  
 }
 
 .sign {
@@ -243,11 +265,15 @@ section {
   padding: 6px 6px 6px 6px;
   border-radius: 4px;
   border: 1px solid #0D0D0D;
-  background: $prim-acc-color !important ;
-  border-color: $prim-acc-color !important ;
   box-shadow: none !important ;
   color: white;
   padding-right: 14%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 
@@ -300,7 +326,7 @@ $nanoVelocity: 2s;
 
 html {
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
 }
 
 body {
@@ -386,16 +412,21 @@ body {
 }
 
 header {
-  background-color: $prim-color; /* Set the background color to your desired solid color */
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 1);
   margin-top: 1%;
   margin-left: 2%;
   opacity: 1;
   z-index: 2; /* Set a higher z-index value for the header */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 
