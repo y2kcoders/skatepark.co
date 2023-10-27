@@ -102,6 +102,31 @@ title: Posts
     </style>
 
     <script>
+        function updateLike(skateparkName) {
+            console.log("Like button clicked for skatepark: " + skateparkName);
+            const requestOptions = {
+                method: 'POST',
+                cache: 'no-cache',
+                credentials: 'include',
+            };
+        
+            // Use the fetch function with the modified request options
+            fetch("https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/like/" + skateparkName, requestOptions)
+                .then(response => {
+                    if (!response.ok) {
+                        throw Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data); // Log the fetched data to the console
+                })
+                .catch(error => {
+                    console.error('Fetch error:', error);
+                });
+        }
+        
+        
         // JavaScript code
         document.addEventListener("DOMContentLoaded", function () {
             const skateparkCardsContainer = document.getElementById("skatepark-cards");
@@ -119,7 +144,7 @@ title: Posts
                         car.innerHTML = `
                             <div class="details">
                                 <div class="info">
-                                    <h3>${skatepark.skateparkName}</h3>
+                                    <h3 id = "test">${skatepark.skateparkName}</h3>
                                     <p><b>Author:</b> ${skatepark.author}</p>
                                     <p><b>Title:</b> ${skatepark.title}</p>
                                     <p><b>Address:</b> ${skatepark.address}</p>
@@ -128,7 +153,7 @@ title: Posts
                                     <p><b>Total Likes:</b> ${skatepark.totalLikes}</p>
                                 </div>
                                 <div class="actions">
-                                    <button>Like</button>
+                                    <button onclick="updateLike('${skatepark.skateparkName}')">Like</button>
                                     <button>Share</button>
                                 </div>
                             </div>
