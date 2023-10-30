@@ -121,6 +121,15 @@ title: Posts
                     return response.json();
                 })
                 .then(data => {
+                    // Find the skatepark card element by skateparkName
+                    const skateparkCard = document.querySelector(`[data-skatepark-name="${skateparkName}"]`);
+                    if (skateparkCard) {
+                             // Update the totalLikes element in the card
+                   const totalLikesElement = skateparkCard.querySelector(".total-likes");
+                       if (totalLikesElement) {
+                         totalLikesElement.textContent = `Total Likes: ${data.totalLikes}`;
+                                            }
+                                        }
                     console.log(data); // Log the fetched data to the console
                 })
                 .catch(error => {
@@ -154,7 +163,7 @@ title: Posts
                                     <p><b>Address:</b> ${skatepark.address}</p>
                                     <p><b>Star Rating:</b> ${skatepark.starRating}</p>
                                     <p><b>Description:</b> ${skatepark.description}</p>
-                                    <p><b>Total Likes:</b> ${skatepark.totalLikes}</p>
+                                    <p class ="total-likes"><b>Total Likes:</b> ${skatepark.totalLikes}</p>
                                 </div>
                                 <div class="actions">
                                     <button onclick="updateLike('${skatepark.skateparkName}')">Like</button>
