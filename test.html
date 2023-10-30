@@ -1,13 +1,6 @@
----
-layout: default
-permalink: posts
-title: Posts
----
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Skatepark Cards</title>
     <style>
         /* CSS code for the card */
         .card {
@@ -97,9 +90,6 @@ title: Posts
     <div id="skatepark-cards" class="scroll-container">
         <!-- Cards will be dynamically added here -->
     </div>
-    <style>
-        /* Rest of your CSS code (you can add more styles as needed) */
-    </style>
 
     <script>
         function updateLike(skateparkName) {
@@ -109,10 +99,7 @@ title: Posts
                 cache: 'no-cache',
                 credentials: 'include',
             };
-        
-            // Use the fetch function with the modified request options
-            //http://localhost:8085/api/skatepark/like/
-            //https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/like/
+
             fetch("https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/like/" + skateparkName, requestOptions)
                 .then(response => {
                     if (!response.ok) {
@@ -121,21 +108,27 @@ title: Posts
                     return response.json();
                 })
                 .then(data => {
+                    // Find the skatepark card element by skateparkName
+                    const skateparkCard = document.querySelector(`[data-skatepark-name="${skateparkName}"]`);
+                    if (skateparkCard) {
+                        // Update the totalLikes element in the card
+                        const totalLikesElement = skateparkCard.querySelector(".total-likes");
+                        if (totalLikesElement) {
+                            totalLikesElement.textContent = `Total Likes: ${data.totalLikes}`;
+                        }
+                    }
                     console.log(data); // Log the fetched data to the console
                 })
                 .catch(error => {
                     console.error('Fetch error:', error);
                 });
         }
-        
-        
+
         // JavaScript code
         document.addEventListener("DOMContentLoaded", function () {
             const skateparkCardsContainer = document.getElementById("skatepark-cards");
 
             // Replace the URL with the actual JSON file URL
-            //http://localhost:8085/api/skatepark/
-            //https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/
             const apiUrl = 'https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/';
 
             fetch(apiUrl)
@@ -145,16 +138,17 @@ title: Posts
                         // Create a new div card for each skatepark
                         const car = document.createElement("div");
                         car.className = "car";
+                        car.dataset.skateparkName = skatepark.skateparkName; // Add data attribute
                         car.innerHTML = `
                             <div class="details">
                                 <div class="info">
-                                    <h3 id = "test">${skatepark.skateparkName}</h3>
+                                    <h3>${skatepark.skateparkName}</h3>
                                     <p><b>Author:</b> ${skatepark.author}</p>
                                     <p><b>Title:</b> ${skatepark.title}</p>
                                     <p><b>Address:</b> ${skatepark.address}</p>
                                     <p><b>Star Rating:</b> ${skatepark.starRating}</p>
                                     <p><b>Description:</b> ${skatepark.description}</p>
-                                    <p><b>Total Likes:</b> ${skatepark.totalLikes}</p>
+                                    <p class="total-likes"><b>Total Likes:</b> ${skatepark.totalLikes}</p>
                                 </div>
                                 <div class="actions">
                                     <button onclick="updateLike('${skatepark.skateparkName}')">Like</button>
