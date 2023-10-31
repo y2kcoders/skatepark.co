@@ -9,7 +9,6 @@ title: SKATEPARK.CO
 
 <h2 id="login" class="project-tagline"></h2>
 <h2 id="welcome" class="project-tagline"></h2>
-      <h2 id = "logout" class="project-tagline"></h2>
 
 <div class="card-container">
     <div class="card" id="review">
@@ -29,15 +28,17 @@ title: SKATEPARK.CO
 <script>
     username = sessionStorage.getItem("uid");
     const loginh2 = document.getElementById('login');
-    const logouth2 = document.getElementById('logout')
-    const welcome = document.getElementById('welcome')
+    const welcome = document.getElementById('welcome');
     if (username == null) {
       loginh2.innerHTML = `
         <a href="https://y2kcoders.stu.nighthawkcodingsociety.com/login" style="color: white;">Login</a> | <a href="https://y2kcoders.stu.nighthawkcodingsociety.com/signup" style="color: white;">Signup</a>
       `;
+      welcome.innerHTML = `
+        Sign Up!!!!!!
+      `;
     }
     else {
-      logouth2.innerHTML = `
+      loginh2.innerHTML = `
       <a href="https://y2kcoders.stu.nighthawkcodingsociety.com//logout"style ="color: white;">Logout</a>`;
       welcome.innerHTML = `
       Welcome ${username} to Skate Park
