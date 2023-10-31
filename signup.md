@@ -39,13 +39,13 @@ permalink: /signup
 function dateFormatter(date) {
   date = new Date(date);
   const date_string =
-    (date.getDate().toString().length === 2
-      ? date.getDate()
-      : "0" + date.getDate().toString()) +
-    "-" +
     ((date.getMonth() + 1).toString().length === 2
       ? date.getMonth() + 1
       : "0" + (date.getMonth() + 1).toString()) +
+    "-" +
+    (date.getDate().toString().length === 2
+      ? date.getDate()
+      : "0" + date.getDate().toString()) +
     "-" +
     date.getFullYear();
   return date_string;
