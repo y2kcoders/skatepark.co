@@ -65,7 +65,7 @@ function login() {
                         if (sessionStorage.getItem("uid") == null) {
                             sessionStorage.setItem("uid", data[i]["name"]);
                         }
-                        location.href = "/";
+                        location.href = "/skatepark.co/";
                         break;
                     }
                     else {
