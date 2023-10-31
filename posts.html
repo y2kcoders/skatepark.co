@@ -154,6 +154,7 @@ title: Posts
                         // Create a new div card for each skatepark
                         const car = document.createElement("div");
                         car.className = "car";
+                        car.dataset.skateparkName = skatepark.skateparkName; // Add data attribute
                         car.innerHTML = `
                             <div class="details">
                                 <div class="info">
