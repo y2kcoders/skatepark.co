@@ -5,9 +5,6 @@ permalink: /login
 ---
 
 
-<body>
-    <script src="{{ '/assets/js/login.js' | relative_url }}"></script>
-<body>
 <div id="spacing" style="padding: 200px;"></div>
 <!-- <div class="page-header" style="padding: 350px height: 20%; border-radius: 50px;">
 <h1 style="color: black;" id="L">Login</h1><br>
@@ -20,7 +17,6 @@ permalink: /login
 <button style="padding: 5px; color: black; flex: 50%" onclick="location.href='https://jakewarren2414.github.io/dolphins2/#Title'">Next</button>
 </div> -->
 <div class="shadow">
-<div id = "loginHead" class="page-header" style="display:none;"><img src="{{ site.url }}/favicon.ico"></div>
 <div id="logininfo"></div>
 </div>
 <script>
@@ -31,7 +27,6 @@ permalink: /login
         var head = document.getElementById("loginHead");
         if (username == null) {
             newRow.innerHTML = `
-                <div class="page-header" style="padding: 350px height: 20%; border-radius: 50px;">
                 <h1 style="color: black;" id="L">Login</h1><br>
                 <input type="text" placeholder="Username" id = "username" style="color: black; padding: 10px;"><br>
                 <input type="password" placeholder="Password" id = "password" style="color: black; padding: 10px;"><br>
@@ -66,9 +61,9 @@ function login() {
                         alert("username or password is incorrect");
                         break;
                     }
-                    if (data[i]["username"] === username && data[i]["password"]===password) {
+                    if (data[i]["name"] === username && data[i]["password"]===password) {
                         if (sessionStorage.getItem("uid") == null) {
-                            sessionStorage.setItem("uid", data[i]["username"]);
+                            sessionStorage.setItem("uid", data[i]["name"]);
                         }
                         location.href = "/";
                         break;
