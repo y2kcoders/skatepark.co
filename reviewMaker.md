@@ -117,7 +117,7 @@ permalink: reviewMaker
                 if (skateparkResponse.ok) {
                     const skateparkData = await skateparkResponse.json();
                     console.log("Skatepark Response:", skateparkData);
-                    window.location.href = "https://y2kcoders.github.io/skatepark.co/posts";
+                    
 
                     const formData = new FormData();
                     formData.append("username", skatepark_name);
