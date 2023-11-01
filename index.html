@@ -7,7 +7,7 @@ title: SKATEPARK.CO
 
 
 
-
+<h2 id="login" ></h2>
 
 <div class="card-container">
     <div class="card" id="review">
@@ -25,6 +25,18 @@ title: SKATEPARK.CO
 </div>
 
 <script>
+    username = sessionStorage.getItem("uid");
+    const loginh2 = document.getElementById('login');
+    if (username == null) {
+      loginh2.innerHTML = `
+        <a href="https://y2kcoders.github.io/skatepark.co/login" style="color: white;">Login</a> | <a href="https://y2kcoders.github.io/skatepark.co/signup" style="color: white;">Signup</a>
+      `;
+    }
+    else {
+      loginh2.innerHTML = `
+      <a href="https://y2kcoders.github.io/skatepark.co/logout"style ="color: white;">Logout</a>
+      <h2 id="welcome">Welcome ${username} to Skate Park</h2>`;
+    }
     const Div1 = document.getElementById("review");
     const Div2 = document.getElementById("acc");
     const Div3 = document.getElementById("brand");
