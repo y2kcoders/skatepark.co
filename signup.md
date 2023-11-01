@@ -33,53 +33,66 @@ permalink: /signup
 </div>
 <div style="padding: 10px">
     <button id = "signUPbutton" type="submit" class="signupbtn" onclick = "signup()">sign up</button>
-    <!-- <button class="signupbtn" onclick="location.href='https://jakewarren2414.github.io/dolphins2/signup'">Delete Account</button> -->
 </div>
 <div id="john"></div>
 <script> 
+function dateFormatter(date) {
+  date = new Date(date);
+  const date_string =
+    ((date.getMonth() + 1).toString().length === 2
+      ? date.getMonth() + 1
+      : "0" + (date.getMonth() + 1).toString()) +
+    "-" +
+    (date.getDate().toString().length === 2
+      ? date.getDate()
+      : "0" + date.getDate().toString()) +
+    "-" +
+    date.getFullYear();
+  return date_string;
+}
     function signup() {
-        var passwords = document.getElementById("password").value;
+        var password = document.getElementById("password").value;
         var confirm_password = document.getElementById("confirm_password").value;
         var username = document.getElementById("username").value;
-        var birthday = document.getElementById('birth').value;
+        var birth = document.getElementById('birth').value;
         var email = document.getElementById('email').value;
-        const login_url = "https://y2kcoders.stu.nighthawkcodingsociety.com/mvc/person/username";
-        const url = "https://y2kcoders.stu.nighthawkcodingsociety.com/mvc/person";
-        const create_fetch = url + '/post'; 
-        fetch(login_url)
-            .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    for (var i = 0; i < data.length; i++) {
-                        if (data[i]["username"] === username) {
-                            alert("Username is already existed");
-                        }
-                    }
-                })
+        const login_url = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/person/username";
+        const url = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/person/post";
+         const requestOptions1 = {
+           method: 'GET', mode: 'no-cors', cache: 'no-cache',
+            headers: { "content-type": "application/json" }
+        };
+        dob = dateFormatter(birth);
+        fetch(login_url, requestOptions1)
+        .then(data => {
+            console.log(data);
+            for (var i = 0; i < data.length; i++) {
+                if (data[i]["username"] === username) {
+                    alert("Username already exists");
+                }
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
         if(username.length === 0){
             alert("please enter your username");
         }
         if(password.length === 0){
             alert("please enter your password");
         }
-        if (birthday === "") {
+        if (dob === "") {
             alert("Please write your birth")
         }
-        const body = {
-            name: document.getElementById("username").value,
-            password: document.getElementById("password").value,
-            dob: birthday = document.getElementById('birth').value,
-            email: document.getElementById("email").value
-        };
-        const requestOptions = {
+        const post_url = url + "?email=" + email + "&name=" + username + "&password=" + password + "&dob=" + dob;
+        var requestOptions = {
             method: 'POST',
-            body: JSON.stringify(body),
-            headers: {
-                "content-type": "application/json",
-            },
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'include',
         };
-        if (passwords == confirm_password) {
-            fetch(create_fetch, requestOptions)
+        if (password == confirm_password) {
+            fetch(post_url, requestOptions)
                 .then(response => {
                     // trap error response from Web API
                     if (response.status !== 200) {
