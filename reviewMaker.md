@@ -37,32 +37,30 @@ permalink: reviewMaker
     <textarea id="Description" class="input-group__input" required style="height: 250px;"></textarea>
     <label for="Description" class="input-group__label">Description</label>
 </div>
-
+<div style="padding-bottom: 20px;">
+        <!-- Add an input field for image upload -->
+        <input type="file" id="image" accept="image/*" class="input-group__file" required />
+</div>
 <div class="input-group">
     <button onclick="post()" class="submit">Submit</button>
 </div>
 
 
 <script>
-    // Wait for the page to fully load
     document.addEventListener('DOMContentLoaded', function () {
-        // Define the API URL
-        const url = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/create";
+        const skateparkUrl = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/create";
+        const imageUploadUrl = "https://y2kcoders.stu.nighthawkcodingsociety.com/image";
 
-        // Function to handle form submission
         async function post() {
-            // Get form input values
-            var title = document.getElementById('title').value;
-            var author = document.getElementById('name').value;
-            var skatepark_name = document.getElementById('skatename').value;
-            var address = document.getElementById('address').value;
-            var rating = document.getElementById('rating').value;
-            var description = document.getElementById('Description').value;
+            const title = document.getElementById('title').value;
+            const author = document.getElementById('name').value;
+            const skatepark_name = document.getElementById('skatename').value;
+            const address = document.getElementById('address').value;
+            const rating = document.getElementById('rating').value;
+            const description = document.getElementById('Description').value;
 
-            // Initialize an error counter
             let errors = 0;
 
-            // Validate form inputs
             if (author === "") {
                 document.getElementById('name').style.borderColor = "red";
                 document.getElementById('name').classList.add("red-background");
@@ -93,13 +91,11 @@ permalink: reviewMaker
                 errors++;
             }
 
-            // Check for errors and return if any
             if (errors > 0) {
                 return;
             }
 
-            // Create a data object to send to the server
-            const data = {
+            const skateparkData = {
                 "skateparkName": skatepark_name,
                 "author": author,
                 "title": title,
@@ -109,32 +105,42 @@ permalink: reviewMaker
                 "totalLikes": 0
             };
 
-            // Send the data to the server
-            fetch(url, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Network response was not ok");
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log("Response data:", data);
-                    window.location.href = "https://y2kcoders.github.io/skatepark.co/posts";
-                    // You can redirect the user or display a success message
-                })
-                .catch(error => {
-                    console.error("Fetch error:", error);
-                    // You can show an error message to the user
+            try {
+                const skateparkResponse = await fetch(skateparkUrl, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(skateparkData)
                 });
+
+                if (skateparkResponse.ok) {
+                    const skateparkData = await skateparkResponse.json();
+                    console.log("Skatepark Response:", skateparkData);
+                    window.location.href = "https://y2kcoders.github.io/skatepark.co/posts";
+
+                    const formData = new FormData();
+                    formData.append("username", skatepark_name);
+                    formData.append("image", document.getElementById("image").files[0]);
+
+                    const imageUploadResponse = await fetch(imageUploadUrl, {
+                        method: "POST",
+                        body: formData
+                    });
+
+                    if (imageUploadResponse.ok) {
+                        console.log("Image uploaded successfully");
+                    } else {
+                        console.error("Image upload failed");
+                    }
+                } else {
+                    console.error("Skatepark API request failed");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+            }
         }
 
-        // Attach the post function to the button click event
         document.querySelector('.submit').addEventListener('click', post);
     });
 </script>
