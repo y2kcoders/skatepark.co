@@ -129,6 +129,30 @@ title: Chat Board
 
   <script>
     function sendMessage() {
+      var inputMessage = document.getElementById('input-message').value;
+      document.getElementById('input-message').value = '';
+      var username = getSelectedUsername();
+
+      // Send the message to the server using fetch
+      fetch('https://y2kcoders.stu.nighthawkcodingsociety.com/post', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, message: inputMessage }),
+      })
+        .then(response => response.json())
+        .then(result => {
+          if (result.success) {
+            displayMessage(username, inputMessage);
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+    
+    function sendMessage() {
       // Retrieve the input message
       var inputMessage = document.getElementById('input-message').value;
 
