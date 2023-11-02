@@ -142,7 +142,7 @@ title: Posts
         
         function deletepark(skateparkName){
 
-            console.log("dislike button clicked for skatepark: " + skateparkName);
+            console.log("deleting  " + skateparkName);
             const requestOptions = {
                 method: 'DELETE',
                 cache: 'no-cache',
@@ -238,7 +238,7 @@ title: Posts
                                 <div class="actions">
                                     <button onclick="updateLike('${skatepark.skateparkName}')">Like</button>
                                     <button onclick="update_dislike('${skatepark.skateparkName}')">dislike</button>
-                                    <button onclick="deletepark">delete</button>
+                                    <button onclick="deletepark('${skatepark.skateparkName}')">delete</button>
                                     <button>Share</button>
                                 </div>
                             </div>
