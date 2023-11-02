@@ -108,10 +108,9 @@ title: change description
     <input type="text" id="new-description" placeholder="Enter new description">
     <button onclick="updateDescription()">Change Description</button>
     <script>
-        function changeDesc(skateparkName) {
+        function changeDesc(skateparkName, newDescription) {
             console.log("Changing description for " + skateparkName);
-            const newDescription = document.getElementById("new-description").value;
-            
+
             const requestOptions = {
                 method: 'POST',
                 headers: {
@@ -119,7 +118,7 @@ title: change description
                 },
                 body: JSON.stringify({ description: newDescription })
             };
-            
+
             // Use the fetch function with the modified request options
             fetch("https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/edit/" + skateparkName, requestOptions)
                 .then(response => {
@@ -150,7 +149,7 @@ title: change description
             if (newDescription) {
                 const skateparkName = prompt("Enter skatepark name to change description for:");
                 if (skateparkName) {
-                    changeDesc(skateparkName);
+                    changeDesc(skateparkName, newDescription);
                 }
             } else {
                 alert("Please enter a new description.");
@@ -182,7 +181,7 @@ title: change description
                                     <p class="descriptionstore"><b>Description:</b> ${skatepark.description}</p>
                                 </div>
                                 <div class="actions">
-                                    <button onclick="changeDesc('${skatepark.skateparkName}')">Change Description</button>
+                                    <button onclick="changeDesc('${skatepark.skateparkName}', '${skatepark.description}')">Change Description</button>
                                 </div>
                             </div>
                         `;
