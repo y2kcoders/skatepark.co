@@ -59,8 +59,8 @@ function dateFormatter(date) {
         const login_url = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/person/username";
         const url = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/person/post";
          const requestOptions1 = {
-           method: 'GET', mode: 'no-cors', cache: 'no-cache',
-            headers: { "content-type": "application/json" }
+           method: 'GET', mode: 'cors', cache: 'no-cache',
+            credentials: 'include',
         };
         dob = dateFormatter(birth);
         fetch(login_url, requestOptions1)
