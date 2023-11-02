@@ -67,7 +67,7 @@ function dateFormatter(date) {
         .then(data => {
             console.log(data);
             for (var i = 0; i < data.length; i++) {
-                if (data[i]["name"] === username) {
+                if (data[i] === username) {
                     alert("Username already exists");
                 }
             }
@@ -94,7 +94,6 @@ function dateFormatter(date) {
         if (password == confirm_password) {
             fetch(post_url, requestOptions)
                 .then(response => {
-                    // trap error response from Web API
                     if (response.status !== 200) {
                     const errorMsg = 'Database create error: ' + response.status;
                     console.log(errorMsg);
