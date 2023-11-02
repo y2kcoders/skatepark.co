@@ -140,6 +140,7 @@ title: Chat Board
             sessionStorage.setItem("uid", user.name);
             loggedIn = true;
             document.getElementById("send-button").removeAttribute("disabled");
+            document.getElementById("login-box").style.display = "none";
           } else {
             alert("Username or password is incorrect");
           }
@@ -151,10 +152,6 @@ title: Chat Board
 
 
     function updateChat() {
-      if (loggedIn = true) {
-        var div = document.getElementsByClassName('username-box');
-        div.style.display = "none;";
-      }
       getMessages();
       setTimeout(updateChat, 2000); // Fetch messages every 2 seconds
     }
