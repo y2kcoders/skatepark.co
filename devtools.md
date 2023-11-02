@@ -28,6 +28,7 @@ permalink: devtools
                     console.log(post);
 
                     const row = document.createElement("tr");
+                    row.setAttribute("data-post-id", post.title); // Set the data-post-id attribute
 
                     const nameCell = document.createElement("td");
                     nameCell.textContent = post.title;
