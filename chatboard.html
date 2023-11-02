@@ -122,6 +122,12 @@ title: Chat Board
   </div>
 
   <script>
+    // Define a function to fetch new messages periodically
+    function updateChat() {
+      getMessages();
+      setTimeout(updateChat, 5000); // Fetch messages every 5 seconds
+    }
+
     function getMessages() {
       fetch('https://y2kcoders.stu.nighthawkcodingsociety.com/post')
         .then(response => response.json())
@@ -141,16 +147,16 @@ title: Chat Board
       var inputMessage = document.getElementById('input-message').value;
       document.getElementById('input-message').value = '';
       var username = document.getElementById('username-input').value;
-    
+
       // Get the current time
       var currentTime = getCurrentTime();
-    
+
       const chatData = {
         "writer": username,
         "title": currentTime,
         "content": inputMessage
       };
-    
+
       try {
         fetch('https://y2kcoders.stu.nighthawkcodingsociety.com/post', {
           method: 'POST',
@@ -162,8 +168,8 @@ title: Chat Board
           .then(response => response.json())
           .then(result => {
             if (result.success) {
+              // Display the sent message immediately
               displayMessage(username, currentTime, inputMessage);
-              getMessages();
             }
           })
           .catch(error => {
@@ -173,7 +179,6 @@ title: Chat Board
         console.error('Error:', error);
       }
     }
-    
 
     function getCurrentTime() {
       const now = new Date();
@@ -182,7 +187,8 @@ title: Chat Board
       return `${hours}:${minutes}`;
     }
 
-    getMessages();
+    // Call the updateChat function to start periodic updates
+    updateChat();
 
     function displayMessage(writer, title, content) {
       const messageElement = document.createElement('div');
@@ -207,6 +213,7 @@ title: Chat Board
       const messagesContainer = document.getElementById('messages');
       messagesContainer.appendChild(messageElement);
 
+      // Scroll to the bottom to show the latest messages
       messagesContainer.scrollTop = messagesContainer.scrollHeight;
     }
   </script>
