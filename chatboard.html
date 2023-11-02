@@ -194,28 +194,42 @@ title: Chat Board
     function displayMessage(writer, title, content) {
       const messageElement = document.createElement('div');
       messageElement.classList.add('message');
-
+    
       const userElement = document.createElement('span');
       userElement.classList.add('user');
       userElement.textContent = writer + ': ';
-
+    
+      // Generate a random color for the user's name
+      const randomColor = getRandomColor();
+      userElement.style.color = randomColor;
+    
       const userMessageElement = document.createElement('span');
       userMessageElement.classList.add('user-message');
       userMessageElement.textContent = content;
-
+    
       const timestampElement = document.createElement('span');
       timestampElement.classList.add('timestamp');
       timestampElement.textContent = title;
-
+    
       messageElement.appendChild(userElement);
       messageElement.appendChild(userMessageElement);
       messageElement.appendChild(timestampElement);
-
+    
       const messagesContainer = document.getElementById('messages');
       messagesContainer.appendChild(messageElement);
-
+    
       // Scroll to the bottom to show the latest messages
       messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+    
+    // Function to generate a random color
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
     }
   </script>
 </body>
