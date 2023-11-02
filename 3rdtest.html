@@ -1,14 +1,9 @@
 ---
 layout: default
-permalink: test2
+permalink: test3
 title: change description 
 ---
 
----
-layout: default
-permalink: posts
-title: Posts
----
 
 <!DOCTYPE html>
 <html>
@@ -105,24 +100,27 @@ title: Posts
         }
     </style>
 </head>
+
 <body>
     <div id="skatepark-cards" class="scroll-container">
         <!-- This div element is used to hold dynamically created skatepark cards. It serves as a container for displaying skatepark objects. -->
     </div>
+    <input type="text" id="new-description" placeholder="Enter new description">
+    <button onclick="updateDescription()">Change Description</button>
     <script>
+        function changeDesc(skateparkName, newDescription) {
+            console.log("Changing description for " + skateparkName);
 
-        function changeDesc(description) {
-            console.log("description will be changed for" + description);
             const requestOptions = {
                 method: 'POST',
-                cache: 'no-cache',
-                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ description: newDescription })
             };
-        
+
             // Use the fetch function with the modified request options
-            //http://localhost:8085/api/skatepark/like/
-            //https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/like/
-            fetch("https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/edit/" + description, requestOptions)
+            fetch("https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/edit/" + skateparkName, requestOptions)
                 .then(response => {
                     if (!response.ok) {
                         throw Error('Network response was not ok');
@@ -131,28 +129,38 @@ title: Posts
                 })
                 .then(data => {
                     // Find the skatepark card element by skateparkName
-                    const skateparkCard = document.querySelector(`[data-skatepark-description="${description}"]`);
+                    const skateparkCard = document.querySelector(`[data-skatepark-description="${skateparkName}"]`);
                     if (skateparkCard) {
-                             // Update the totalLikes element in the card
-                   const descriptionElement = skateparkCard.querySelector("descriptionstore");
-                       if (descriptionstore) {
-                         descriptionstore.textContent = `Description: ${data.description}`;
-                                            }
-                                        }
+                        // Update the description element in the card
+                        const descriptionElement = skateparkCard.querySelector(".descriptionstore");
+                        if (descriptionElement) {
+                            descriptionElement.textContent = `Description: ${newDescription}`;
+                        }
+                    }
                     console.log(data); // Log the fetched data to the console
                 })
                 .catch(error => {
                     console.error('Fetch error:', error);
                 });
         }
-        
+
+        function updateDescription() {
+            const newDescription = document.getElementById("new-description").value;
+            if (newDescription) {
+                const skateparkName = prompt("Enter skatepark name to change description for:");
+                if (skateparkName) {
+                    changeDesc(skateparkName, newDescription);
+                }
+            } else {
+                alert("Please enter a new description.");
+            }
+        }
 
         // JavaScript code
         document.addEventListener("DOMContentLoaded", function () {
             const skateparkCardsContainer = document.getElementById("skatepark-cards");
 
             // Replace the URL with the actual URL
-            //http://localhost:8085/api/skatepark/
             //https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/
             const apiUrl = 'https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/';
 
@@ -162,22 +170,22 @@ title: Posts
                     data.forEach(skatepark => {
                         // Create a new div card for each skatepark
                         // Creating individual skatepark cards, which encapsulate the information for each skatepark.
-                        const car = document.createElement("div");
-                        car.className = "car";
-                        car.dataset.description = skatepark.description; // Add data attribute
-                        car.innerHTML = `
+                        const card = document.createElement("div");
+                        card.className = "card";
+                        card.dataset.description = skatepark.skateparkName; // Add data attribute
+                        card.innerHTML = `
                             <div class="details">
                                 <div class="info">
-                                    <h3 id = "test">${skatepark.skateparkName}</h3>
+                                    <h3>${skatepark.skateparkName}</h3>
                                     <p><b>Title:</b> ${skatepark.title}</p>
-                                    <p class = "descriptionstore"><b>Description:</b> ${skatepark.description}</p>
+                                    <p class="descriptionstore"><b>Description:</b> ${skatepark.description}</p>
+                                </div>
                                 <div class="actions">
-                                    <button onclick="changeDesc('${skatepark.skateparkName}')">change description</button>
-
+                                    <button onclick="changeDesc('${skatepark.skateparkName}', '${skatepark.description}')">Change Description</button>
                                 </div>
                             </div>
                         `;
-                        skateparkCardsContainer.appendChild(car);
+                        skateparkCardsContainer.appendChild(card);
                     });
                 })
                 .catch(error => console.error("Error fetching data:", error));
