@@ -163,6 +163,7 @@ title: Chat Board
           .then(result => {
             if (result.success) {
               displayMessage(username, currentTime, inputMessage);
+              getMessages();
             }
           })
           .catch(error => {
