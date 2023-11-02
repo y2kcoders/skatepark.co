@@ -125,7 +125,7 @@ title: Chat Board
     // Define a function to fetch new messages periodically
     function updateChat() {
       getMessages();
-      setTimeout(updateChat, 5000); // Fetch messages every 5 seconds
+      setTimeout(updateChat, 2000); // Fetch messages every 2 seconds
     }
 
     function getMessages() {
@@ -221,13 +221,14 @@ title: Chat Board
       // Scroll to the bottom to show the latest messages
       messagesContainer.scrollTop = messagesContainer.scrollHeight;
     }
-    
+    /*
     // Function to generate a random color
     function getRandomColor() {
       const list = ["#FF5733", "#FFC300", "#5DBB63", "#6B66B5", "#4183D7"];
       const randomIndex = Math.floor(Math.random() * list.length);
       return list[randomIndex];
     }
+    */
   </script>
 </body>
 </html>
