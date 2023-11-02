@@ -151,7 +151,7 @@ title: Chat Board
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, title: currentTime, content: inputMessage }),
+        body: JSON.stringify({ username: username, title: currentTime, content: inputMessage }),
       })
         .then(response => response.json())
         .then(result => {
