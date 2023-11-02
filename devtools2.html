@@ -203,7 +203,45 @@ title: Posts
                     console.error('Fetch error:', error);
                 });
         }
+
+
+
         
+        function censorparkdesc(description) {
+            console.log("description will be changed for" + description);
+            const requestOptions = {
+                method: 'POST',
+                cache: 'no-cache',
+                credentials: 'include',
+            };
+        
+            // Use the fetch function with the modified request options
+            //http://localhost:8085/api/skatepark/like/
+            //https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/like/
+            fetch("https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/edit/" + description, requestOptions)
+                .then(response => {
+                    if (!response.ok) {
+                        throw Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Find the skatepark card element by skateparkName
+                    const skateparkCard = document.querySelector(`[data-skatepark-description="${description}"]`);
+                    if (skateparkCard) {
+                             // Update the totalLikes element in the card
+                   const descriptionElement = skateparkCard.querySelector("descriptionstore");
+                       if (descriptionstore) {
+                         descriptionstore.textContent = `Description: ${data.description}`;
+                                            }
+                                        }
+                    console.log(data); // Log the fetched data to the console
+                })
+                .catch(error => {
+                    console.error('Fetch error:', error);
+                });
+        }
+
 
         // JavaScript code
         document.addEventListener("DOMContentLoaded", function () {
@@ -239,6 +277,7 @@ title: Posts
                                     <button onclick="updateLike('${skatepark.skateparkName}')">Like</button>
                                     <button onclick="update_dislike('${skatepark.skateparkName}')">dislike</button>
                                     <button onclick="deletepark('${skatepark.skateparkName}')">delete</button>
+                                    <button onclick="censorparkdesc('${skatepark.skateparkName}')">delete</button>
                                     <button>Share</button>
                                 </div>
                             </div>
