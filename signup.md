@@ -32,7 +32,7 @@ permalink: /signup
     <br>
 </div>
 <div style="padding: 10px">
-    <button id = "signUPbutton" type="submit" onclick="signup()">sign up</button>
+    <button id="signUPbutton" type="submit">sign up</button>
 </div>
 <div id="john"></div>
 <script> 
@@ -57,41 +57,42 @@ function signup() {
     var birth = document.getElementById('birth').value;
     var email = document.getElementById('email').value;
     const login_url = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/person/username";
-    const url = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/person/post";
-        const requestOptions1 = {
-        method: 'GET', mode: 'cors', cache: 'no-cache',
-        credentials: 'include',
-    };
-    dob = dateFormatter(birth);
-    fetch(login_url, requestOptions1)
+const url = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/person/post";
+dob = dateFormatter(birth);
+fetch(login_url)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json(); // Parse the JSON from the response
+    })
     .then(data => {
-        data.forEach(users => {=
-            if (users === username) {
+        // Assuming 'data' is an array of usernames
+        data.forEach(user => {
+            if (user === username) {
                 alert("Username already exists");
+                return;
             }
         });
-    });
+    })
     .catch(error => {
         console.error('Error:', error);
     });
     if(username.length === 0){
         alert("please enter your username");
+        return;
     }
     if(password.length === 0){
         alert("please enter your password");
+        return;
     }
     if (dob === "") {
-        alert("Please write your birth")
+        alert("Please write your birth");
+        return;
     }
     const post_url = url + "?email=" + email + "&name=" + username + "&password=" + password + "&dob=" + dob;
-    var requestOptions = {
-        method: 'POST',
-        mode: 'cors',
-        cache: 'no-cache',
-        credentials: 'include',
-    };
     if (password == confirm_password) {
-        fetch(post_url, requestOptions)
+        fetch(post_url)
             .then(response => {
                 if (response.status !== 200) {
                 const errorMsg = 'Database create error: ' + response.status;
@@ -108,5 +109,6 @@ function signup() {
         alert("password is not matched");
     }
 }
+document.getElementById('signUPbutton').addEventListener('click', signup);
 </script>
 
