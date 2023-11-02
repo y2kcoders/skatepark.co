@@ -20,39 +20,21 @@ title: SKATEPARK.CO
         <p>Wanna talk about everything there is skateparks?</p>
     </div>
 </div>
+<script>
+const Div1 = document.getElementById("review");
+const Div2 = document.getElementById("acc");
+const Div3 = document.getElementById("brand");
 
-
-<!--
-    <div id="countdown">
-        <span id="timer">10</span>
-    </div>
-    <div id="fullscreen-image" style="display: none;">
-        <img src="your_image.jpg" alt="Full Screen Image">
-    </div>
-    <audio id="soundtrack" autoplay>
-        <source src="your_soundtrack.mp3" type="audio/mpeg">
-    </audio>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const timerElement = document.getElementById("timer");
-            const fullscreenImage = document.getElementById("fullscreen-image");
-            const soundtrack = document.getElementById("soundtrack");
-
-            let timer = 10; // Set the initial timer value in seconds
-
-            function updateTimer() {
-                timer--;
-                timerElement.textContent = timer;
-
-                if (timer <= 0) {
-                    clearInterval(timerInterval);
-                    fullscreenImage.style.display = "block";
-                    soundtrack.play();
-                }
-            }
-
-            // Start the timer countdown
-            const timerInterval = setInterval(updateTimer, 1000);
-        });
-    </script>
-    -->
+Div1.addEventListener("click", function() {
+    const url = "{{site.baseurl}}/reviewMaker"; 
+    window.location.href = url;
+});
+Div2.addEventListener("click", function() {
+    const url2 = "{{site.baseurl}}/account"; 
+    window.location.href = url2;
+});
+Div3.addEventListener("click", function() {
+    const url3 = "{{site.baseurl}}/chat-board"; 
+    window.location.href = url3;
+});
+</script>

@@ -3,14 +3,11 @@ layout: default
 permalink: /chat-board
 title: Chat Board
 ---
-
-
-
 <html>
 <head>
   <h1 class="messing-around">chat-board</h1>
   <style>
-    html{
+    html {
       overflow: hidden;
     }
     .chatbox {
@@ -31,23 +28,23 @@ title: Chat Board
       -webkit-backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.3);
     }
-    
+
     .message {
       margin-bottom: 10px;
       position: relative;
     }
-    
+
     .user {
       color: #9BC53D;
       font-weight: bold;
       display: inline-block;
     }
-    
+
     .user-message {
       display: inline-block;
       margin-left: 5px;
     }
-    
+
     .timestamp {
       font-size: 0.8em;
       color: #888;
@@ -55,7 +52,7 @@ title: Chat Board
       right: 0;
       bottom: 0;
     }
-    
+
     input[type="text"] {
       width: 95%;
       padding: 12px;
@@ -63,9 +60,8 @@ title: Chat Board
       border-radius: 10px;
       background-color: #f7f7f7;
       box-shadow: inset 6px 6px 12px #d9d9d9, inset -6px -6px 12px #c7ced0;
-      
     }
-    
+
     button {
       padding: 12px;
       margin-top: 10px;
@@ -125,100 +121,83 @@ title: Chat Board
     <input type="text" id="username-input" placeholder="Enter your username..." />
     <button class="submit-username" onclick="submitUsername()">Submit</button>
   </div>
-  
 
   <script>
+    function getMessages() {
+      fetch('https://y2kcoders.stu.nighthawkcodingsociety.com/post')
+        .then(response => response.json())
+        .then(messages => {
+          const messagesContainer = document.getElementById('messages');
+          messagesContainer.innerHTML = ''; // Clear existing messages
+          messages.forEach(message => {
+            displayMessage(message.writer, message.title, message.content);
+          });
+        })
+        .catch(error => {
+          console.error('Error fetching messages:', error);
+        });
+    }
+
     function sendMessage() {
       var inputMessage = document.getElementById('input-message').value;
       document.getElementById('input-message').value = '';
-      var username = getSelectedUsername();
+      var username = document.getElementById('username-input').value;
 
-      // Send the message to the server using fetch
+      // Get the current time
+      var currentTime = getCurrentTime();
+
       fetch('https://y2kcoders.stu.nighthawkcodingsociety.com/post', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, message: inputMessage }),
+        body: JSON.stringify({ username, title: currentTime, content: inputMessage }),
       })
         .then(response => response.json())
         .then(result => {
           if (result.success) {
-            displayMessage(username, inputMessage);
+            displayMessage(username, currentTime, inputMessage);
           }
         })
         .catch(error => {
           console.error('Error:', error);
         });
     }
-    
-    function sendMessage() {
-      // Retrieve the input message
-      var inputMessage = document.getElementById('input-message').value;
 
-      // Clear the input field
-      document.getElementById('input-message').value = '';
+    function getCurrentTime() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      return `${hours}:${minutes}`;
+    }
 
-      // Create a new message element
-      var messageElement = document.createElement('div');
+    getMessages();
+
+    function displayMessage(writer, title, content) {
+      const messageElement = document.createElement('div');
       messageElement.classList.add('message');
 
-      // Create user element
-      var userElement = document.createElement('span');
+      const userElement = document.createElement('span');
       userElement.classList.add('user');
-      userElement.textContent = getSelectedUsername() + ': ';
+      userElement.textContent = writer + ': ';
 
-      // Create user message element
-      var userMessageElement = document.createElement('span');
+      const userMessageElement = document.createElement('span');
       userMessageElement.classList.add('user-message');
-      userMessageElement.textContent = inputMessage;
+      userMessageElement.textContent = content;
 
-      // Create timestamp element
-      var timestampElement = document.createElement('span');
+      const timestampElement = document.createElement('span');
       timestampElement.classList.add('timestamp');
-      timestampElement.textContent = getCurrentTime();
+      timestampElement.textContent = title;
 
-      // Append user, user message, and timestamp elements to the message element
       messageElement.appendChild(userElement);
       messageElement.appendChild(userMessageElement);
       messageElement.appendChild(timestampElement);
 
-      // Append the message element to the messages container
-      var messagesContainer = document.getElementById('messages');
+      const messagesContainer = document.getElementById('messages');
       messagesContainer.appendChild(messageElement);
 
-      // Check the number of messages and delete the oldest if more than 21
-      var messages = messagesContainer.getElementsByClassName('message');
-      if (messages.length > 19) {
-        messagesContainer.removeChild(messages[0]);
-      }
-
-      // Scroll to the bottom to show the latest message
       messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    }
-
-    function submitUsername() {
-      var username = document.getElementById('username-input').value;
-      localStorage.setItem('selectedUsername', username);
-    }
-
-    function getSelectedUsername() {
-      return localStorage.getItem('selectedUsername') || 'Anonymous';
-    }
-
-    function getCurrentTime() {
-      var now = new Date();
-      var hours = now.getHours();
-      var minutes = now.getMinutes();
-      var ampm = hours >= 12 ? 'PM' : 'AM';
-      hours = hours % 12;
-      hours = hours ? hours : 12;
-      minutes = minutes < 10 ? '0' + minutes : minutes;
-      var currentTime = hours + ':' + minutes + ' ' + ampm;
-      return currentTime;
     }
   </script>
 </body>
 </html>
-
-

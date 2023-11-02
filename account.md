@@ -4,7 +4,7 @@ title: account
 baseurl: account
 ---
 
-# Account
+
 
 <a id="login" ></a>
 
@@ -18,7 +18,7 @@ baseurl: account
     }
     else {
       loginh2.innerHTML = `
-      <a href="https://y2kcoders.github.io/skatepark.co/logout class="sign">Logout</a>
+      <a href="https://y2kcoders.github.io/skatepark.co/logout"style ="color: white;">Logout</a>
       <h6 id="welcome">Welcome ${username} to skatepark.co</h6>`;
     }
 </script>
