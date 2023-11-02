@@ -50,63 +50,63 @@ function dateFormatter(date) {
     date.getFullYear();
   return date_string;
 }
-    function signup() {
-        var password = document.getElementById("password").value;
-        var confirm_password = document.getElementById("confirm_password").value;
-        var username = document.getElementById("username").value;
-        var birth = document.getElementById('birth').value;
-        var email = document.getElementById('email').value;
-        const login_url = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/person/username";
-        const url = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/person/post";
-         const requestOptions1 = {
-           method: 'GET', mode: 'cors', cache: 'no-cache',
-            credentials: 'include',
-        };
-        dob = dateFormatter(birth);
-        fetch(login_url, requestOptions1)
-        .then(data => {
-            data.forEach(users => {=
-                if (users === username) {
-                    alert("Username already exists");
-                }
-            });
+function signup() {
+    var password = document.getElementById("password").value;
+    var confirm_password = document.getElementById("confirm_password").value;
+    var username = document.getElementById("username").value;
+    var birth = document.getElementById('birth').value;
+    var email = document.getElementById('email').value;
+    const login_url = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/person/username";
+    const url = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/person/post";
+        const requestOptions1 = {
+        method: 'GET', mode: 'cors', cache: 'no-cache',
+        credentials: 'include',
+    };
+    dob = dateFormatter(birth);
+    fetch(login_url, requestOptions1)
+    .then(data => {
+        data.forEach(users => {=
+            if (users === username) {
+                alert("Username already exists");
+            }
         });
-        .catch(error => {
-            console.error('Error:', error);
-        });
-        if(username.length === 0){
-            alert("please enter your username");
-        }
-        if(password.length === 0){
-            alert("please enter your password");
-        }
-        if (dob === "") {
-            alert("Please write your birth")
-        }
-        const post_url = url + "?email=" + email + "&name=" + username + "&password=" + password + "&dob=" + dob;
-        var requestOptions = {
-            method: 'POST',
-            mode: 'cors',
-            cache: 'no-cache',
-            credentials: 'include',
-        };
-        if (password == confirm_password) {
-            fetch(post_url, requestOptions)
-                .then(response => {
-                    if (response.status !== 200) {
-                    const errorMsg = 'Database create error: ' + response.status;
-                    console.log(errorMsg);
-                    return;
-                    }
-                    // response contains valid result
-                    response.json().then(data => {
-                        console.log(data);
-                        //add a table row for the new/created userid
-                    })
-                })
-        } else {
-            alert("password is not matched");
-        }
+    });
+    .catch(error => {
+        console.error('Error:', error);
+    });
+    if(username.length === 0){
+        alert("please enter your username");
     }
+    if(password.length === 0){
+        alert("please enter your password");
+    }
+    if (dob === "") {
+        alert("Please write your birth")
+    }
+    const post_url = url + "?email=" + email + "&name=" + username + "&password=" + password + "&dob=" + dob;
+    var requestOptions = {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'include',
+    };
+    if (password == confirm_password) {
+        fetch(post_url, requestOptions)
+            .then(response => {
+                if (response.status !== 200) {
+                const errorMsg = 'Database create error: ' + response.status;
+                console.log(errorMsg);
+                return;
+                }
+                // response contains valid result
+                response.json().then(data => {
+                    console.log(data);
+                    //add a table row for the new/created userid
+                })
+            })
+    } else {
+        alert("password is not matched");
+    }
+}
 </script>
 
