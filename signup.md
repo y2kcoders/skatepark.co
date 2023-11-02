@@ -65,13 +65,12 @@ function dateFormatter(date) {
         dob = dateFormatter(birth);
         fetch(login_url, requestOptions1)
         .then(data => {
-            console.log(data);
-            for (var i = 0; i < data.length; i++) {
-                if (data[i] === username) {
+            data.forEach(users => {=
+                if (users === username) {
                     alert("Username already exists");
                 }
-            }
-        })
+            });
+        });
         .catch(error => {
             console.error('Error:', error);
         });
