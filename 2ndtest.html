@@ -1,0 +1,155 @@
+---
+layout: default
+permalink: testing
+title: change description 
+---
+
+---
+layout: default
+permalink: posts
+title: Posts
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Skatepark Cards</title>
+    <style>
+        /* CSS code for the card */
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            background-color: #f9f9f9;
+        }
+
+        /* CSS code for the card container with scroll */
+        .scroll-container {
+            max-height: 100vh; /* Set a max height to enable scrolling */
+            overflow-y: auto; /* Enable vertical scrolling when content overflows */
+        }
+
+        /* CSS code for the car (skatepark card) */
+        .car {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            background-color: #171717;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            /* From https://css.glass */
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-top: 1%;
+            height:auto;
+        }
+
+        .car h3 {
+            margin-top: 0;
+        }
+
+        .car p {
+            margin: 0;
+        }
+
+        .car .details {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .car .details .info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .car .details .actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .car .details .actions button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .car .details .actions button:hover {
+            background-color: #3e8e41;
+        }
+
+        .info img {
+            max-width: 100%; /* Set the maximum width to 100% of its container */
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="skatepark-cards" class="scroll-container">
+        <!-- This div element is used to hold dynamically created skatepark cards. It serves as a container for displaying skatepark objects. -->
+    </div>
+    <script>
+
+        function changeDesc(description) {
+            console.log("description will be changed for" + skateparkName + "original description: " + description);
+        }
+
+        // JavaScript code
+        document.addEventListener("DOMContentLoaded", function () {
+            const skateparkCardsContainer = document.getElementById("skatepark-cards");
+
+            // Replace the URL with the actual URL
+            //http://localhost:8085/api/skatepark/
+            //https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/
+            const apiUrl = 'https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/';
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(skatepark => {
+                        // Create a new div card for each skatepark
+                        // Creating individual skatepark cards, which encapsulate the information for each skatepark.
+                        const car = document.createElement("div");
+                        car.className = "car";
+                        car.dataset.skateparkName = skatepark.skateparkName; // Add data attribute
+                        car.innerHTML = `
+                            <div class="details">
+                                <div class="info">
+                                    <h3 id = "test">${skatepark.skateparkName}</h3>
+                                    <p><b>Title:</b> ${skatepark.title}</p>
+                                    <p><b>Description:</b> ${skatepark.description}</p>
+                                <div class="actions">
+                                    <button onclick="changeDesc('${skatepark.skateparkName}')">change description</button>
+
+                                </div>
+                            </div>
+                        `;
+                        skateparkCardsContainer.appendChild(car);
+                    });
+                })
+                .catch(error => console.error("Error fetching data:", error));
+        });
+    </script>
+</body>
+</html>
