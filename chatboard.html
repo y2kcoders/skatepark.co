@@ -112,17 +112,45 @@ title: Chat Board
     <div id="messages">
     </div>
     <div>
-      <input type="text" id="input-message" placeholder="Type your message..." />
-      <button onclick="sendMessage()">Send</button>
+      <input type="text" id="input-message" placeholder="Type your message..." />x
+      <button id="send-button" onclick="sendMessage()" disabled>Send</button>
     </div>
   </div>
 
   <div class="username-box">
     <input type="text" id="username-input" placeholder="Enter your username...">
+    <input type="password" id="password-input" placeholder="Enter your password...">
+    <button onclick="login()">Login</button>
   </div>
 
   <script>
     // Define a function to fetch new messages periodically
+    let loggedIn = false; // Track login status
+
+    function login() {
+      const login_url = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/person/";
+      const password = document.getElementById("password-input").value;
+      const username = document.getElementById("username-input").value;
+      fetch(login_url)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          const user = data.find(u => u.name === username && u.password === password);
+          if (user) {
+            sessionStorage.setItem("uid", user.name);
+            loggedIn = true;
+            document.getElementById("send-button").removeAttribute("disabled");
+            document.getElementById("login-box").style.display = "none";
+          } else {
+            alert("Username or password is incorrect");
+          }
+        })
+        .catch(error => {
+          console.error('Error logging in:', error);
+        });
+    }
+
+
     function updateChat() {
       getMessages();
       setTimeout(updateChat, 2000); // Fetch messages every 2 seconds
@@ -132,6 +160,9 @@ title: Chat Board
       fetch('https://y2kcoders.stu.nighthawkcodingsociety.com/post')
         .then(response => response.json())
         .then(messages => {
+          // Reverse the order of messages so the newest is displayed at the top
+          messages.reverse();
+
           const messagesContainer = document.getElementById('messages');
           messagesContainer.innerHTML = ''; // Clear existing messages
           messages.forEach(message => {
