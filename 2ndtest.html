@@ -113,7 +113,39 @@ title: Posts
 
         function changeDesc(description) {
             console.log("description will be changed for" + description);
+            const requestOptions = {
+                method: 'POST',
+                cache: 'no-cache',
+                credentials: 'include',
+            };
+        
+            // Use the fetch function with the modified request options
+            //http://localhost:8085/api/skatepark/like/
+            //https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/like/
+            fetch("https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/edit/" + description, requestOptions)
+                .then(response => {
+                    if (!response.ok) {
+                        throw Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Find the skatepark card element by skateparkName
+                    const skateparkCard = document.querySelector(`[data-skatepark-description="${description}"]`);
+                    if (skateparkCard) {
+                             // Update the totalLikes element in the card
+                   const descriptionElement = skateparkCard.querySelector("descriptionstore");
+                       if (descriptionstore) {
+                         descriptionstore.textContent = `Description: ${data.description}`;
+                                            }
+                                        }
+                    console.log(data); // Log the fetched data to the console
+                })
+                .catch(error => {
+                    console.error('Fetch error:', error);
+                });
         }
+        
 
         // JavaScript code
         document.addEventListener("DOMContentLoaded", function () {
@@ -132,13 +164,13 @@ title: Posts
                         // Creating individual skatepark cards, which encapsulate the information for each skatepark.
                         const car = document.createElement("div");
                         car.className = "car";
-                        car.dataset.skateparkName = skatepark.skateparkName; // Add data attribute
+                        car.dataset.description = skatepark.description; // Add data attribute
                         car.innerHTML = `
                             <div class="details">
                                 <div class="info">
                                     <h3 id = "test">${skatepark.skateparkName}</h3>
                                     <p><b>Title:</b> ${skatepark.title}</p>
-                                    <p><b>Description:</b> ${skatepark.description}</p>
+                                    <p class = "descriptionstore"><b>Description:</b> ${skatepark.description}</p>
                                 <div class="actions">
                                     <button onclick="changeDesc('${skatepark.skateparkName}')">change description</button>
 
