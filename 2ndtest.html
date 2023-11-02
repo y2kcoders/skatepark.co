@@ -1,5 +1,11 @@
 ---
 layout: default
+permalink: testing
+title: change description 
+---
+
+---
+layout: default
 permalink: posts
 title: Posts
 ---
@@ -104,78 +110,10 @@ title: Posts
         <!-- This div element is used to hold dynamically created skatepark cards. It serves as a container for displaying skatepark objects. -->
     </div>
     <script>
-        // Finding and updating the skatepark card element by skateparkName, showcasing encapsulation.
-        function updateLike(skateparkName) {
-            console.log("Like button clicked for skatepark: " + skateparkName);
-            const requestOptions = {
-                method: 'POST',
-                cache: 'no-cache',
-                credentials: 'include',
-            };
-        
-            // Use the fetch function with the modified request options
-            //http://localhost:8085/api/skatepark/like/
-            //https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/like/
-            fetch("https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/like/" + skateparkName, requestOptions)
-                .then(response => {
-                    if (!response.ok) {
-                        throw Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    // Find the skatepark card element by skateparkName
-                    const skateparkCard = document.querySelector(`[data-skatepark-name="${skateparkName}"]`);
-                    if (skateparkCard) {
-                             // Update the totalLikes element in the card
-                   const totalLikesElement = skateparkCard.querySelector(".total-likes");
-                       if (totalLikesElement) {
-                         totalLikesElement.textContent = `Total Likes: ${data.totalLikes}`;
-                                            }
-                                        }
-                    console.log(data); // Log the fetched data to the console
-                })
-                .catch(error => {
-                    console.error('Fetch error:', error);
-                });
+
+        function changeDesc(description) {
+            console.log("description will be changed for" + skateparkName + "original description: " + description);
         }
-        
-        
-        function update_dislike(skateparkName) {
-            console.log("dislike button clicked for skatepark: " + skateparkName);
-            const requestOptions = {
-                method: 'POST',
-                cache: 'no-cache',
-                credentials: 'include',
-            };
-        
-            // Use the fetch function with the modified request options
-            //http://localhost:8085/api/skatepark/like/
-            //https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/like/
-            fetch("https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/dislike/" + skateparkName, requestOptions)
-                .then(response => {
-                    if (!response.ok) {
-                        throw Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    // Find the skatepark card element by skateparkName
-                    const skateparkCard = document.querySelector(`[data-skatepark-name="${skateparkName}"]`);
-                    if (skateparkCard) {
-                             // Update the totalLikes element in the card
-                   const totalLikesElement = skateparkCard.querySelector(".total-likes");
-                       if (totalLikesElement) {
-                         totalLikesElement.textContent = `Total Likes: ${data.totalLikes}`;
-                                            }
-                                        }
-                    console.log(data); // Log the fetched data to the console
-                })
-                .catch(error => {
-                    console.error('Fetch error:', error);
-                });
-        }
-        
 
         // JavaScript code
         document.addEventListener("DOMContentLoaded", function () {
@@ -199,18 +137,11 @@ title: Posts
                             <div class="details">
                                 <div class="info">
                                     <h3 id = "test">${skatepark.skateparkName}</h3>
-                                    <img src = "https://y2kcoders.stu.nighthawkcodingsociety.com/image/${skatepark.skateparkName}">
-                                    <p><b>Author:</b> ${skatepark.author}</p>
                                     <p><b>Title:</b> ${skatepark.title}</p>
-                                    <p><b>Address:</b> ${skatepark.address}</p>
-                                    <p><b>Star Rating:</b> ${skatepark.starRating}</p>
                                     <p><b>Description:</b> ${skatepark.description}</p>
-                                    <p class ="total-likes"><b>Total Likes:</b> ${skatepark.totalLikes}</p>
-                                </div>
                                 <div class="actions">
-                                    <button onclick="updateLike('${skatepark.skateparkName}')">Like</button>
-                                    <button onclick="update_dislike('${skatepark.skateparkName}')">dislike</button>
-                                    <button>Share</button>
+                                    <button onclick="changeDesc('${skatepark.skateparkName}')">change description</button>
+
                                 </div>
                             </div>
                         `;

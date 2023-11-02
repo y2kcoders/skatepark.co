@@ -360,6 +360,7 @@ body {
   animation: planeMoveTop $nanoVelocity infinite linear;
 }
 
+
 .bottom-plane {
   @extend .top-plane;
   transform: rotateX(-85deg);
@@ -390,7 +391,6 @@ body {
     perspective: $visualDistortionZapper - 150;
   }
 }
-
 
 .top-plane {
   width: 200%;
