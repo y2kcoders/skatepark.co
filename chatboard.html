@@ -112,7 +112,7 @@ title: Chat Board
     <div id="messages">
     </div>
     <div>
-      <input type="text" id="input-message" placeholder="Type your message..." />
+      <input type="text" id="input-message" placeholder="Type your message..." />x
       <button id="send-button" onclick="sendMessage()" disabled>Send</button>
     </div>
   </div>
@@ -151,6 +151,10 @@ title: Chat Board
 
 
     function updateChat() {
+      if (loggedIn = true) {
+        var div = document.getElementsByClassName('username-box');
+        div.style.display = "none;";
+      }
       getMessages();
       setTimeout(updateChat, 2000); // Fetch messages every 2 seconds
     }
