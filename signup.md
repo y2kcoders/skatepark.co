@@ -67,7 +67,7 @@ function dateFormatter(date) {
         .then(data => {
             console.log(data);
             for (var i = 0; i < data.length; i++) {
-                if (data[i]["username"] === username) {
+                if (data[i]["name"] === username) {
                     alert("Username already exists");
                 }
             }
