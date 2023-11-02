@@ -32,7 +32,7 @@ permalink: /signup
     <br>
 </div>
 <div style="padding: 10px">
-    <button id = "signUPbutton" type="submit" class="signupbtn" onclick = "signup()">sign up</button>
+    <button id = "signUPbutton" type="submit" onclick="signup()">sign up</button>
 </div>
 <div id="john"></div>
 <script> 
