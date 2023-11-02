@@ -92,7 +92,7 @@ fetch(login_url)
     }
     const post_url = url + "?email=" + email + "&name=" + username + "&password=" + password + "&dob=" + dob;
     if (password == confirm_password) {
-        fetch(post_url)
+        fetch(post_url, {method: "POST", headers: {"Content-Type": "application/json"}});
             .then(response => {
                 if (response.status !== 200) {
                 const errorMsg = 'Database create error: ' + response.status;
