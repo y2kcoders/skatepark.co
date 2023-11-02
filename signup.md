@@ -59,15 +59,15 @@ function dateFormatter(date) {
         const login_url = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/person/username";
         const url = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/person/post";
          const requestOptions1 = {
-           method: 'GET', mode: 'no-cors', cache: 'no-cache',
-            headers: { "content-type": "application/json" }
+           method: 'GET', mode: 'cors', cache: 'no-cache',
+            credentials: 'include',
         };
         dob = dateFormatter(birth);
         fetch(login_url, requestOptions1)
         .then(data => {
             console.log(data);
             for (var i = 0; i < data.length; i++) {
-                if (data[i]["username"] === username) {
+                if (data[i] === username) {
                     alert("Username already exists");
                 }
             }
@@ -94,7 +94,6 @@ function dateFormatter(date) {
         if (password == confirm_password) {
             fetch(post_url, requestOptions)
                 .then(response => {
-                    // trap error response from Web API
                     if (response.status !== 200) {
                     const errorMsg = 'Database create error: ' + response.status;
                     console.log(errorMsg);
