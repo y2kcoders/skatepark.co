@@ -21,7 +21,7 @@ permalink: /login
                 <input type="password" placeholder="Password" id = "password" style="color: black; padding: 10px;"><br>
                 <p></p>
                 <p id="message"></p>
-                <button style="padding: 5px; color: black; flex: 50%" onclick="login()">Login</button>
+                <button style="padding: 5px; color: black; flex: 50%" onclick="location.href='https://y2kcoders.github.io/skatepark.co/signup'">Login</button>
                 <button style="padding: 5px; color: black; flex: 50%" onclick="location.href='https://y2kcoders.github.io/skatepark.co/signup'">Signup</button>
             `;
         }
