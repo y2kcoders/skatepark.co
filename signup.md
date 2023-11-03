@@ -64,7 +64,7 @@ fetch(login_url)
                 .then(data => {
                     console.log(data);
                     for (var i = 0; i < data.length; i++) {
-                        if (data[i] === username) {
+                        if (data[i]=== username) {
                             alert("Username is already existed");
                         }
                     }
@@ -96,7 +96,7 @@ fetch(login_url)
     const post_url = url + "?email=" + email + "&name=" + username + "&password=" + password + "&dob=" + dob;
     if (password == confirm_password) {
         fetch(post_url, {method: "POST", headers: {"Content-Type": "application/json"}})
-            .then(response => {
+            then(response => {
                 if (response.status !== 200) {
                 const errorMsg = 'Database create error: ' + response.status;
                 console.log(errorMsg);
