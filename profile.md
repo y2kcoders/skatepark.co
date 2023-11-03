@@ -24,7 +24,7 @@
                     <p id="fileName"></p>
                 </div>
                 <div class="buttonContainer">
-                    <div class="submitButton" id="submitButton">SUBMIT</div>
+                    <button class="submitButton" id="submitButton">SUBMIT</button>
                 </div>
             </div>
         </div>
