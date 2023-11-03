@@ -98,6 +98,7 @@ function signup() {
                 response.json().then(data => {
                     location.href = "/skatepark.co/";
                 })
+                location.href = "/skatepark.co/";
             })
     } else {
         alert("password is not matched");
