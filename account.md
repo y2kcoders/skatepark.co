@@ -19,6 +19,7 @@ baseurl: account
     else {
       loginh2.innerHTML = `
       <a href="https://y2kcoders.github.io/skatepark.co/logout"style ="color: white;">Logout</a>
-      <h6 id="welcome">Welcome ${username} to skatepark.co</h6>`;
+      <h6 id="welcome">Welcome ${username} to skatepark.co</h6>
+      <button onclick="window.location.href='https://y2kcoders.github.io/skatepark.co/profile'">change Profile Picture</button>`;
     }
 </script>
