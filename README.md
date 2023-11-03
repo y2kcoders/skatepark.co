@@ -1,4 +1,4 @@
-## Skatepark.co
+# Skatepark.co
 > Site for reviewing skateparks and generel skatepark talk
 - Three Main Features, Login, Review Maker, and Chatboard
 - Four API's created for this website
@@ -8,7 +8,7 @@
 - Make a post about your favorite skatepark
 - Talk in the chatroom
 
-## Technicals
+# Technicals
 - If our backend is down, clone our backend to test features on your own laptop
 - Might have to change links in javascript
 - [Backend Site](https://github.com/y2kcoders/backend)
@@ -82,41 +82,4 @@ bundle install
     ```bash
     make convert
     ```
-### Meta Data (Front Matter)
-- Meta data also known as front matter is a set of key value pairs that can provide additional information to github pages about .md and .ipynb files. This can and probably will be used in other file types (ie doc, pdf), if we added them to the system.
 
-- In the front matter you can also define things like a title and description for the page.  Additional front matter is defined to place content on "Computer Science Lab Notebook" page.  The `courses:` key will place data on a specific page with the nested `week:` placing data on a specific row on the page.  The `type:` key in front matter will place blog under the plans, hacks(ToDo), and tangibles column. 
-
-- In our files the front matter is defined at the top of the page or the first markdown cell.
-
-    - First open one of the .md or .ipynb files already included in either your _posts folder or your _notebooks folder.
-
-    - In the .md file you should notice something similar to this at the top of the page. To see this in your .ipynb files you will need to double click the markdown cell at the top of the file.
-
-    ```yaml
-    ---
-    toc: true
-    comments: false
-    layout: post
-    title: Daily Plan Sample
-    description: Example Blog!!!  This shows planning and notes from hacks.
-    type: plans
-    courses: { compsci: {week: 0} }
-    ---
-    ```
-
-- Front matter will always have '---' at the top and bottom to distinguish it and each key value pair will be separated by a ':'.
-
-- Here we can modify things like the title and description.
-
-- The type value will tells us which column this is going to appear under, supported values: `plans`, `hacks`, `tangibles`.
-
-- The courses tells us which menu item it will be under, in this case the `compsci` menu, and the `week` tells it what row (week) it will appear under that menu.
-
-- In our examples,  hacks(ToDo) contains references to our IPYNB files; these are stored in GitHub under the `_notebooks` folder.   The plans and tangibles contains references to our MD files; these are stored in GitHub under the `_posts` folder.
-
-- Key files in Computer Science Lab Notebook
-    - `compsci.md` - this is the "Computer Science Lab Notebook" page and is the link `https://nighthawkcoders.github.io/student/compsci`.  It contains the Title and Number of units on the page.
-    - `_data/compsci.yml` - this contains the supporting data that helps organize the units on the page.
-    - `_layouts`\schedule.html - this contains code, in the Liquid language, that generates the HTML for all the rows and columns.
-    - fyi, the schedule.html could work for another type of page.  For instance, you could make a csa.md, _data/csa.yml, and tag files with `csa: {week: 0}` under courses.

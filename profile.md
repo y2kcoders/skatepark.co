@@ -54,7 +54,8 @@
                     body: formData
                 });
                 if (imageUploadResponse.ok) {
-                    console.log("Image uploaded successfully");
+                    console.log("Image uploaded successfully");          
+                    location.href = "/skatepark.co/";
                 } else {
                     console.error("Image upload failed");
                 }
@@ -75,7 +76,6 @@
             newImage.style.objectFit = "contain";
             var container = document.getElementById('image-show');
             container.appendChild(newImage);
-            location.href = "/skatepark.co/";
         }
     </script>
 </body>
