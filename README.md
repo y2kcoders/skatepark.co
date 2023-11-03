@@ -1,3 +1,19 @@
+## Skatepark.co
+> Site for reviewing skateparks and generel skatepark talk
+- Three Main Features, Login, Review Maker, and Chatboard
+- Four API's created for this website
+
+## How to use
+- View our site and create a account
+- Make a post about your favorite skatepark
+- Talk in the chatroom
+
+## Technicals
+- If our backend is down, clone our backend to test features on your own laptop
+- Might have to change links in javascript
+- [Backend Site](https://github.com/y2kcoders/backend)
+
+
 ## Blog site using GitHub Pages and Jekyll
 > This site is intended for Students.   This is to record plans, complete hacks, and do work for your learnings.
 - This can be customized to support computer science as you work through pathway (JavaScript, Python/Flask, Java/Spring)
