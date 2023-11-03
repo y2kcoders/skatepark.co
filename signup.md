@@ -57,19 +57,19 @@ function signup() {
     var birth = document.getElementById('birth').value;
     var email = document.getElementById('email').value;
     const login_url = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/person/username";
-const url = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/person/post";
-dob = dateFormatter(birth);
-fetch(login_url)
-    .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            for (var i = 0; i < data.length; i++) {
-                if (data[i]=== username) {
-                    alert("Username is already existed");
-                    return;
+    const url = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/person/post";
+    dob = dateFormatter(birth);
+    fetch(login_url)
+        .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i] === username) {
+                        alert("Username is already existed");
+                        return;
+                    }
                 }
-            }
-        })
+            })
     .catch(error => {
         console.error('Error:', error);
     });
@@ -96,11 +96,9 @@ fetch(login_url)
                 }
                 // response contains valid result
                 response.json().then(data => {
-                    console.log(data);
-                    //add a table row for the new/created userid
+                    location.href = "/skatepark.co/";
                 })
             })
-        location.href = "/skatepark.co/";
     } else {
         alert("password is not matched");
     }
