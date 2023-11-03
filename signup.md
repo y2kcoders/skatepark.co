@@ -60,24 +60,16 @@ function signup() {
 const url = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/person/post";
 dob = dateFormatter(birth);
 fetch(login_url)
-            .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    for (var i = 0; i < data.length; i++) {
-                        if (data[i]=== username) {
-                            alert("Username is already existed");
-                        }
-                    }
-                })
-    .then(data => {
-        // Assuming 'data' is an array of usernames
-        data.forEach(user => {
-            if (user === username) {
-                alert("Username already exists");
-                return;
+    .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            for (var i = 0; i < data.length; i++) {
+                if (data[i]=== username) {
+                    alert("Username is already existed");
+                    return;
+                }
             }
-        });
-    })
+        })
     .catch(error => {
         console.error('Error:', error);
     });
@@ -96,7 +88,7 @@ fetch(login_url)
     const post_url = url + "?email=" + email + "&name=" + username + "&password=" + password + "&dob=" + dob;
     if (password == confirm_password) {
         fetch(post_url, {method: "POST", headers: {"Content-Type": "application/json"}})
-            then(response => {
+            .then(response => {
                 if (response.status !== 200) {
                 const errorMsg = 'Database create error: ' + response.status;
                 console.log(errorMsg);
