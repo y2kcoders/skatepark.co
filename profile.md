@@ -31,6 +31,10 @@
         <div class="image-show" id="image-show"></div>
     </div>
     <script>
+        username = sessionStorage.getItem("uid");
+        if (username == null) {
+            location.href = "/skatepark.co/";
+        }
         var submit = document.getElementById('submitButton');
         submit.onclick = showImage;
         var username = sessionStorage.getItem("uid");

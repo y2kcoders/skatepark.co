@@ -67,7 +67,13 @@
         else {
             index.innerHTML = `<h3>${username}</h3>`;
             img.innerHTML = `
-            <img id="profile-img" src="https://y2kcoders.stu.nighthawkcodingsociety.com/image/${username}">
+            <img id="profile-img" src="https://y2kcoders.stu.nighthawkcodingsociety.com/image/${username}" onerror="handleImageError()">
             `;
         }
+    
+function handleImageError() {
+  let imgElement = document.getElementById('profile-img');
+  imgElement.style.display = 'none'; // Hide the image element if it fails to load
+  img.innerHTML = `<img id="profile-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPjKATmnhrK5tAwwubWT4StUWrCzms3kOx0eYfXtHqLg&s">`; // Display an error message
+}
 </script>
