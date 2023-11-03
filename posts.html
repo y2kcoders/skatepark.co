@@ -148,9 +148,8 @@ title: Posts
                 }, 10000); // 10 seconds (10000 milliseconds)
         }
         
-        
+        dislikeButtonCooldown = false; 
         function update_dislike(skateparkName, buttonElement) {
-            dislikeButtonCooldown = false; 
             if (dislikeButtonCooldown) {
                 alert("please wait before clicking dislike again!");
                 return; // If the button is disabled, do nothing
