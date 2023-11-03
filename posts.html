@@ -105,8 +105,13 @@ title: Posts
     </div>
     <script>
         // Finding and updating the skatepark card element by skateparkName, showcasing encapsulation.
-        function updateLike(skateparkName) {
+        function updateLike(skateparkName, buttonElement) {
             console.log("Like button clicked for skatepark: " + skateparkName);
+            if (buttonElement.disabled) {
+                alert("please wait before clicking like again!");
+                return; // If the button is disabled, do nothing
+            }
+            buttonElement.disabled = true; // Disable the button
             const requestOptions = {
                 method: 'POST',
                 cache: 'no-cache',
@@ -138,10 +143,17 @@ title: Posts
                 .catch(error => {
                     console.error('Fetch error:', error);
                 });
+                setTimeout(function() {
+                    buttonElement.disabled = false; // Re-enable the button after 10 seconds
+                }, 10000); // 10 seconds (10000 milliseconds)
         }
         
         
-        function update_dislike(skateparkName) {
+        function update_dislike(skateparkName, buttonElement) {
+            if (buttonElement.disabled) {
+                alert("please wait before clicking dislike again!");
+                return; // If the button is disabled, do nothing
+            }
             console.log("dislike button clicked for skatepark: " + skateparkName);
             const requestOptions = {
                 method: 'POST',
@@ -174,6 +186,9 @@ title: Posts
                 .catch(error => {
                     console.error('Fetch error:', error);
                 });
+                setTimeout(function() {
+                    buttonElement.disabled = false; // Re-enable the button after 10 seconds
+                }, 10000); // 10 seconds (10000 milliseconds)
         }
         
 
@@ -208,8 +223,8 @@ title: Posts
                                     <p class ="total-likes"><b>Total Likes:</b> ${skatepark.totalLikes}</p>
                                 </div>
                                 <div class="actions">
-                                    <button onclick="updateLike('${skatepark.skateparkName}')">Like</button>
-                                    <button onclick="update_dislike('${skatepark.skateparkName}')">dislike</button>
+                                    <button onclick="updateLike('${skatepark.skateparkName}',this)">Like</button>
+                                    <button onclick="update_dislike('${skatepark.skateparkName}',this)">dislike</button>
                                     <button>Share</button>
                                 </div>
                             </div>

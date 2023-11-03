@@ -45,7 +45,6 @@ permalink: /login
     loginPage();
     var sessionData = "uid"
 function login() {
-    // const login_url = 'https://dolphin.nighthawkcodingsociety.com/api/users/match';
     const login_url = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/person/";
     const password = document.getElementById("password").value;
     const username = document.getElementById("username").value;
