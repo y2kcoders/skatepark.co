@@ -150,6 +150,7 @@ title: Posts
         
         
         function update_dislike(skateparkName, buttonElement) {
+            dislikeButtonCooldown = true; 
             if (dislikeButtonCooldown) {
                 alert("please wait before clicking dislike again!");
                 return; // If the button is disabled, do nothing
