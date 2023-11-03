@@ -150,11 +150,13 @@ title: Posts
         
         
         function update_dislike(skateparkName, buttonElement) {
-            if (buttonElement.disabled) {
+            dislikeButtonCooldown = true; 
+            if (dislikeButtonCooldown) {
                 alert("please wait before clicking dislike again!");
                 return; // If the button is disabled, do nothing
             }
             console.log("dislike button clicked for skatepark: " + skateparkName);
+            dislikeButtonCooldown = true;
             const requestOptions = {
                 method: 'POST',
                 cache: 'no-cache',
@@ -187,7 +189,7 @@ title: Posts
                     console.error('Fetch error:', error);
                 });
                 setTimeout(function() {
-                    buttonElement.disabled = false; // Re-enable the button after 10 seconds
+                    dislikeButtonCooldown = false; // Re-enable the button after 10 seconds
                 }, 10000); // 10 seconds (10000 milliseconds)
         }
         
