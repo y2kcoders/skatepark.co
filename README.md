@@ -1,4 +1,4 @@
-## Skatepark.co
+# Skatepark.co
 > Site for reviewing skateparks and generel skatepark talk
 - Three Main Features, Login, Review Maker, and Chatboard
 - Four API's created for this website
@@ -8,7 +8,7 @@
 - Make a post about your favorite skatepark
 - Talk in the chatroom
 
-## Technicals
+# Technicals
 - If our backend is down, clone our backend to test features on your own laptop
 - Might have to change links in javascript
 - [Backend Site](https://github.com/y2kcoders/backend)
