@@ -108,6 +108,7 @@ fetch(login_url)
                     //add a table row for the new/created userid
                 })
             })
+        location.href = "/skatepark.co/";
     } else {
         alert("password is not matched");
     }

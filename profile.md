@@ -71,6 +71,7 @@
             newImage.style.objectFit = "contain";
             var container = document.getElementById('image-show');
             container.appendChild(newImage);
+            location.href = "/skatepark.co/";
         }
     </script>
 </body>
