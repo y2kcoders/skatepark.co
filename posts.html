@@ -108,7 +108,7 @@ title: Posts
         function updateLike(skateparkName, buttonElement) {
             console.log("Like button clicked for skatepark: " + skateparkName);
             if (buttonElement.disabled) {
-                alert("please wait before clicking like again!")
+                alert("please wait before clicking like again!");
                 return; // If the button is disabled, do nothing
             }
             buttonElement.disabled = true; // Disable the button
@@ -151,7 +151,7 @@ title: Posts
         
         function update_dislike(skateparkName, buttonElement) {
             if (buttonElement.disabled) {
-                alert("please wait before clicking dislike again!")
+                alert("please wait before clicking dislike again!");
                 return; // If the button is disabled, do nothing
             }
             console.log("dislike button clicked for skatepark: " + skateparkName);
@@ -224,7 +224,7 @@ title: Posts
                                 </div>
                                 <div class="actions">
                                     <button onclick="updateLike('${skatepark.skateparkName}',this)">Like</button>
-                                    <button onclick="update_dislike('${skatepark.skateparkName}, this')">dislike</button>
+                                    <button onclick="update_dislike('${skatepark.skateparkName}',this)">dislike</button>
                                     <button>Share</button>
                                 </div>
                             </div>
