@@ -105,8 +105,12 @@ title: Posts
     </div>
     <script>
         // Finding and updating the skatepark card element by skateparkName, showcasing encapsulation.
-        function updateLike(skateparkName) {
+        function updateLike(skateparkName, buttonElement) {
             console.log("Like button clicked for skatepark: " + skateparkName);
+            if (buttonElement.disabled) {
+                return; // If the button is disabled, do nothing
+            }
+            buttonElement.disabled = true; // Disable the button
             const requestOptions = {
                 method: 'POST',
                 cache: 'no-cache',
@@ -138,6 +142,9 @@ title: Posts
                 .catch(error => {
                     console.error('Fetch error:', error);
                 });
+                setTimeout(function() {
+                    buttonElement.disabled = false; // Re-enable the button after 10 seconds
+                }, 10000); // 10 seconds (10000 milliseconds)
         }
         
         
