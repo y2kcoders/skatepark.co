@@ -253,7 +253,12 @@ title: Posts
             const apiUrl = 'https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/';
 
             fetch(apiUrl)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     data.forEach(skatepark => {
                         // Create a new div card for each skatepark

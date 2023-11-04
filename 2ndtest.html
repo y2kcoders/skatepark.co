@@ -4,11 +4,7 @@ permalink: test2
 title: change description 
 ---
 
----
-layout: default
-permalink: posts
-title: Posts
----
+
 
 <!DOCTYPE html>
 <html>
@@ -184,4 +180,33 @@ title: Posts
         });
     </script>
 </body>
+
+
+<script>
+function tester() {
+    const requestOptions = {
+        method: 'GET', // Change the method to 'GET'
+        cache: 'no-cache',
+        credentials: 'include',
+    };
+
+    // Use the fetch function with the modified request options
+    fetch("http://localhost:8085/api/skatepark/", requestOptions)
+        .then(response => {
+            if (!response.ok) {
+                throw Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Log the fetched data to the console
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+        });
+
+}
+</script>
+<button onclick="tester">testing</button>
 </html>
