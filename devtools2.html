@@ -150,9 +150,9 @@ title: Posts
             };
         
             // Use the fetch function with the modified request options
-            //http://localhost:8085/api/skatepark/like/
+            //http://localhost:8085/api/skatepark/delete/
             //https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/like/
-            fetch("https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/delete/" + skateparkName, requestOptions)
+            fetch("http://localhost:8085/api/skatepark/delete/" + skateparkName, requestOptions)
                 .then(response => {
                     if (!response.ok) {
                         throw Error('Network response was not ok');
@@ -250,7 +250,7 @@ title: Posts
             // Replace the URL with the actual URL
             //http://localhost:8085/api/skatepark/
             //https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/
-            const apiUrl = 'https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/';
+            const apiUrl = 'http://localhost:8085/api/skatepark/';
 
             fetch(apiUrl)
                 .then(response => {
