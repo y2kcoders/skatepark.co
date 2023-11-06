@@ -23,8 +23,8 @@ title: SKATEPARK.CO
 <script>
 if (username == null) {
     welcome.innerHTML = `
-                <button style="padding: 5px; color: black; flex: 50%" onclick="location.href='https://y2kcoders.github.io/skatepark.co/login'">Login</button>
-                <button style="padding: 5px; color: black; flex: 50%" onclick="location.href='https://y2kcoders.github.io/skatepark.co/signup'">Signup</button>
+                <button class="log" style="padding: 5px; color: black; flex: 50%" onclick="location.href='https://y2kcoders.github.io/skatepark.co/login'">Login</button>
+                <button class="sign" style="padding: 5px; color: black; flex: 50%" onclick="location.href='https://y2kcoders.github.io/skatepark.co/signup'">Signup</button>
             `;
 } else {
     welcome.innerHTML = `<div>Hello ${username} welcome back</div>
@@ -48,3 +48,8 @@ Div3.addEventListener("click", function() {
     window.location.href = url3;
 });
 </script>
+
+
+<style>
+    .home1
+</style>

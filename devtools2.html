@@ -150,8 +150,8 @@ title: Posts
             };
         
             // Use the fetch function with the modified request options
-            //http://localhost:8085/api/skatepark/like/
-            //https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/like/
+            //http://localhost:8085/api/skatepark/delete/
+            //https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/delete/
             fetch("https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/delete/" + skateparkName, requestOptions)
                 .then(response => {
                     if (!response.ok) {
@@ -253,7 +253,12 @@ title: Posts
             const apiUrl = 'https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/';
 
             fetch(apiUrl)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     data.forEach(skatepark => {
                         // Create a new div card for each skatepark
