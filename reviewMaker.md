@@ -139,6 +139,7 @@ permalink: reviewMaker
             } catch (error) {
                 console.error("Error:", error);
             }
+            window.location.href = 'https://y2kcoders.github.io/skatepark.co/posts';
         }
 
         document.querySelector('.submit').addEventListener('click', post);
