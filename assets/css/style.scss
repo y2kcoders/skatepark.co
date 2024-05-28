@@ -67,7 +67,7 @@ header{
   margin-left: 20px;
 }
 
-.card:hover {
+.card:hover, .log:hover, .sign:hover {
   transition: 400ms;
   transition-timing-function: ease;
   color: black;
@@ -192,7 +192,7 @@ header{
     }
   }
 
-  .fork:hover, .title:hover, .button:hover{
+  .fork:hover, .title:hover, .button:hover, .log:hover, .sign:hover{
     transition-duration: 300ms;
     scale: 1.2;
     opacity: 1;
@@ -239,8 +239,8 @@ section {
   /* You can also add other styling properties like padding or margin if needed */
 }
 .log {
-  width: 200px !important;
-  height: 15px;
+  width: 220px !important;
+  height: 30px;
   margin-bottom: 12px;
   line-height: 1em;
   padding: 6px 6px 6px 10px;
@@ -255,12 +255,13 @@ section {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-left: 2.5%;
   
 }
 
 .sign {
-  width: 200px !important;
-  height: 15px;
+  width: 220px !important;
+  height: 30px;
   margin-bottom: 12px;
   line-height: 1em;
   padding: 6px 6px 6px 6px;
@@ -275,6 +276,7 @@ section {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-left: 2%;
 }
 
 

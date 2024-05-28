@@ -16,7 +16,7 @@ permalink: devtools
 
 <script>
     async function main() {
-        const backendURL = 'https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/'; // Update the URL to match your backend API
+        const backendURL = 'http://localhost:8085/api/skatepark/'; // Update the URL to match your backend API
 
         try {
             const response = await fetch(backendURL);

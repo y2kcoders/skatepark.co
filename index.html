@@ -4,7 +4,7 @@ title: SKATEPARK.CO
 ---
 
 <h1>Home</h1>
-
+<div id = "welcome"></div>
 
 <div class="card-container">
     <div class="card" id="review">
@@ -21,6 +21,16 @@ title: SKATEPARK.CO
     </div>
 </div>
 <script>
+if (username == null) {
+    welcome.innerHTML = `
+                <button class="log" style="padding: 5px; color: black; flex: 50%" onclick="location.href='https://y2kcoders.github.io/skatepark.co/login'">Login</button>
+                <button class="sign" style="padding: 5px; color: black; flex: 50%" onclick="location.href='https://y2kcoders.github.io/skatepark.co/signup'">Signup</button>
+            `;
+} else {
+    welcome.innerHTML = `<div>Hello ${username} welcome back</div>
+    <button style="padding: 5px; color: black; flex: 50%" onclick="location.href='https://y2kcoders.github.io/skatepark.co/logout'">Logout</button>
+    `;
+}
 const Div1 = document.getElementById("review");
 const Div2 = document.getElementById("acc");
 const Div3 = document.getElementById("brand");
@@ -38,3 +48,4 @@ Div3.addEventListener("click", function() {
     window.location.href = url3;
 });
 </script>
+

@@ -1,0 +1,26 @@
+
+---
+layout: default
+permalink: test4
+title: change description 
+---
+
+
+<html>
+<script>
+    function tester() {
+        const apiUrl = 'http://localhost:8085/api/skatepark/';
+
+        fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => { 
+                console.log(data);})
+            }
+    </script>
+    <button onclick="tester()">testing</button>
+    </html>
