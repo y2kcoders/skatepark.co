@@ -38,7 +38,6 @@ header{
 /* Your existing card styling */
 .card {
   flex: 1;
-  background-color: $prim-color;
   padding: 20px;
   border-radius: 8px;
   transition: 400ms;
@@ -72,7 +71,6 @@ header{
   transition: 400ms;
   transition-timing-function: ease;
   color: black;
-  background-color: $prim-acc-color;
   scale: 1.1;
   z-index: 2; /* Set a higher z-index value for the header */
 }

@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
         credentials: 'include',
     };
     // Use the fetch function with the modified request options
-    fetch("https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/", requestOptions)
+    fetch("http://localhost:8085/api/skatepark/", requestOptions)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -66,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error('Fetch error:', error);
         });
 });
-
     </script>
 </body>
 </html>

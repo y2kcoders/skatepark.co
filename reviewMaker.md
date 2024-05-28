@@ -48,8 +48,8 @@ permalink: reviewMaker
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const skateparkUrl = "https://y2kcoders.stu.nighthawkcodingsociety.com/api/skatepark/create";
-        const imageUploadUrl = "https://y2kcoders.stu.nighthawkcodingsociety.com/image";
+        const skateparkUrl = "http://localhost:8085/api/skatepark/create";
+        const imageUploadUrl = "http://localhost:8085/image";
 
         async function post() {
             const title = document.getElementById('title').value;
